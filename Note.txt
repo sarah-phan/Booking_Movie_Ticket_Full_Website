@@ -1,0 +1,9 @@
+Boostrap, scss, mui
+Vẫn được xem nếu chưa đăng nhập
+Muốn mua phải đăng nhập
+
+Đã cài: jquery, boostrap, redux, react-redux, react-router-dom, mui, redux-thunk, axios
+
+Website tham khảo:
+https://www.lottecinemavn.com/LCHS/index.aspx
+https://momo.vn/cinema/f9-75
