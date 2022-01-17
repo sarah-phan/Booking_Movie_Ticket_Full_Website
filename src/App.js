@@ -4,10 +4,11 @@ import { Suspense } from 'react';
 
 import { renderRoutesHome } from './routes';
 import PageNotFound from './containers/PageNotFound';
+import Loading from './components/loading';
 
 function App() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loading/>}>
       <BrowserRouter>
         <Switch>
           {renderRoutesHome()}

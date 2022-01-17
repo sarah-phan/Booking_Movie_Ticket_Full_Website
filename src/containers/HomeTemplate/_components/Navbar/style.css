@@ -1,0 +1,31 @@
+#navbarHome, .nav-link{
+    background-color: #f6f6e9;
+    padding: 10px 0;
+}
+.active{
+    font-weight: 700;
+}
+.nav-link{
+    color: #7b3911;
+    position: relative;
+}
+.nav-link:hover{
+    color: #7b3911;
+    font-weight: 700;
+}
+.nav-link::before{
+    position: absolute;
+    content: "";
+    width: 93%;
+    height: 2px;
+    bottom: 6px;
+    left: 6px;
+    background-color: #7b3911;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+}
+.nav-link:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+}

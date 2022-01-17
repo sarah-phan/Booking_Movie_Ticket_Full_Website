@@ -1,0 +1,13 @@
+
+.phimHotTitle{
+    background-color: #f6f6e9;
+    color: #7b3911;
+    border: 1px solid #f6f6e9;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 10px 0;
+    width: 145px;
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+}
