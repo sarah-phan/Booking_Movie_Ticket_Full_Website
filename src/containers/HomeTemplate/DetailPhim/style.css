@@ -1,0 +1,7 @@
+.col-8{
+    padding-top: 20px;
+}
+.col-4, .col-8, span, .danhGia, .rating{
+    background-color: #f6f6e9;
+    color: #7b3911;
+}

@@ -7,8 +7,8 @@ export default function PhimHot(props) {
     // console.log(phimHot)
     return (
         <div className='col-md-4'>
-            <div className="card" style={{ width: '18rem' }}>
-                <img src={phimHot.hinhAnh} width="100%" className="card-img-top" alt={phimHot.hinhAnh} />
+            <div className="card" style={{ width: '18rem', height: "100%", marginTop: 15}}>
+                <img src={phimHot.hinhAnh} className="card-img-top" alt={phimHot.hinhAnh} />
                 <div className="card-body">
                     <h5 className="card-title">
                         {phimHot.tenPhim}
