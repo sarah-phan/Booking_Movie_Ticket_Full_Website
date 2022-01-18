@@ -1,6 +1,6 @@
 #navbarHome, .nav-link{
     background-color: #f6f6e9;
-    padding: 10px 0;
+    padding-top: 10px;
 }
 .active{
     font-weight: 700;

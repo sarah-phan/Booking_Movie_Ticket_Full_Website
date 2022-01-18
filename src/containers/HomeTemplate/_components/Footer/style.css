@@ -1,0 +1,33 @@
+.footerContent{
+    padding-bottom: 10px;
+}
+.footerHome{
+    background-color: #f6f6e9;
+    margin-top: 35px;
+}
+ul li{
+    list-style: none;
+    margin-bottom: 1rem;
+}
+li a, p{
+    color: #7b3911;
+}
+li a:hover{
+    color: #937ea8;
+    text-decoration: none;
+}
+p a{
+    color: #7b3911;
+}
+p a:hover{
+    color: #937ea8;
+    text-decoration: none;
+}
+.copyright{
+    border-top: 2px solid #7b3911;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 13px;
+    margin-bottom: 0;
+}
