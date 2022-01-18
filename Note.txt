@@ -7,3 +7,11 @@ Muốn mua phải đăng nhập
 Website tham khảo:
 https://www.lottecinemavn.com/LCHS/index.aspx
 https://momo.vn/cinema/f9-75
+
+Mã màu sử dụng:
+#7b3911 - nâu chữ
+#f6f6e9 - background
+#57E0BD - xanh highlight (hover)
+#dc661f - background cam
+#937EA8 - button tím
+

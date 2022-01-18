@@ -18,7 +18,7 @@ export default function CarouselHome() {
             const active = index === 0 ? ' active' : ''; // cho index 0 active mặc định
             return (
                 <div className={`carousel-item${active}`} key={index}>
-                    <img src={movie.hinhAnh} width="100%" height="500px" className="d-block w-100" alt={movie.hinhAnh} />
+                    <img src={movie.hinhAnh} width="100%" height="500" className="d-block w-100" alt={movie.hinhAnh} />
                 </div>
             )
         })

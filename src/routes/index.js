@@ -20,11 +20,23 @@ const routesHome = [
         path: "/rap-chieu-phim",
         component: lazy(() => import ("../containers/HomeTemplate/RapChieuPhim")),
     },
-    // Mua vé
+    // Mua vé theo rạp
     {
         exact: false,
-        path: "/mua-ve",
-        component: lazy(() => import ("../containers/HomeTemplate/MuaVe")),
+        path: "/mua-ve-theo-rap",
+        component: lazy(() => import ("../containers/HomeTemplate/MuaVeTheoRap")),
+    },
+    // Chi tiết phim
+    {
+        exact: false,
+        path: "/chi-tiet-phim/:id",
+        component: lazy(() => import ("../containers/HomeTemplate/DetailPhim")),
+    },
+    // Mua vé theo phim
+    {
+        exact: false,
+        path: "/mua-ve-theo-phim/:id",
+        component: lazy(() => import ("../containers/HomeTemplate/MuaVeTheoPhim"))
     }
 ];
 
