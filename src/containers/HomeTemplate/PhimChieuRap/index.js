@@ -6,9 +6,11 @@ import "./style.css"
 import { actFetchListPhim } from '../_components/ModuleRenderListPhim/action'
 
 import ListPhim from './ListPhim'
+import Loading from '../../../components/loading'
 
 export default function PhimChieuRap() {
     const data = useSelector(state => state.listPhimReducer.data)
+    const loading = useSelector(state => state.listPhimReducer.loading)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -55,6 +57,13 @@ export default function PhimChieuRap() {
             }
         })
     }
+
+    if(loading){
+        return(
+            <Loading/>
+        )
+    }
+
     return (
         <div>
             <CarouselHome />

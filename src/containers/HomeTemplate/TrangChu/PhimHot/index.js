@@ -13,7 +13,7 @@ export default function PhimHot(props) {
                         {phimHot.tenPhim}
                         <NavLink to={`/chi-tiet-phim/${phimHot.maPhim}`} className='detailPhim'> ...Chi tiết</NavLink>
                     </h5>
-                    <NavLink to={`/mua-ve/${phimHot.maPhim}`} className='muaVe'>Mua vé</NavLink>
+                    <NavLink to={`/mua-ve-theo-phim/${phimHot.maPhim}`} className='muaVe'>Mua vé</NavLink>
                 </div>
             </div>
         </div>

@@ -35,15 +35,6 @@ export default function NavbarHome() {
                             Rạp Chiếu Phim
                         </NavLink>
                     </li>
-                    <li className="nav-item">
-                        <NavLink
-                            activeClassName='active'
-                            className="nav-link"
-                            to="/mua-ve"
-                        >
-                            Mua vé
-                        </NavLink>
-                    </li>
                 </ul>
             </div>
         </nav>
