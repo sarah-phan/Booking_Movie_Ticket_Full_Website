@@ -1,13 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 
 export default function PhimHot(props) {
     const { phimHot } = props
     // console.log(phimHot)
     return (
-        <div className='col-md-4'>
-            <div className="card" style={{ width: '18rem', height: "100%", marginTop: 15}}>
+        <div className='col-md-4' style={{marginTop: 40}}>
+            <div className="card" style={{ width: '18rem', height: "100%"}}>
                 <img src={phimHot.hinhAnh} className="card-img-top" alt={phimHot.hinhAnh} />
                 <div className="card-body">
                     <h5 className="card-title">
