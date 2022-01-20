@@ -14,7 +14,7 @@ export default function ListPhim(props) {
                         {phim.tenPhim}
                         <NavLink to={`/chi-tiet-phim/${phim.maPhim}`} className='detailPhim'> ...Chi tiết</NavLink>
                     </h5>
-                    <NavLink to={`/mua-ve/${phim.maPhim}`} className='muaVe'>Mua vé</NavLink>
+                    <NavLink to={`/mua-ve-theo-phim/${phim.maPhim}`} className='muaVe'>Mua vé</NavLink>
                 </div>
             </div>
         </div>

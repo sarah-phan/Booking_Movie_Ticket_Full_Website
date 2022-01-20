@@ -10,21 +10,22 @@
 .logoImage{
     width: 12%;
 }
-.webName{
+.logo .webName{
     margin-top: 2%;
     margin-bottom: 0;
     line-height: 0;
-    color: white;
 }
 .webName h3{
     text-align: center;
     font-weight: 800;
+    color: white;
 }
 .webName p{
     margin-top: 0;
     margin-bottom: 0;
     font-family: 'Dancing Script', cursive;
     font-size: 25px;
+    color: white;
 }
 .login{
     width: 20%;
