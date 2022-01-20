@@ -5,7 +5,7 @@ export const actFetchListCumRap = (id) => {
     return (dispatch) => {
         dispatch(actListCumRapRequest())
         api
-        .get(`LayThongTinCumRapTheoHeThong?maHeThongRap=${id}`)
+        .get(`QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${id}`)
         .then((result) => {
             dispatch(actListCumRapSuccess(result.data.content))
         })

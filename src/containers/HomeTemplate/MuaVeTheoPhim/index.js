@@ -4,9 +4,12 @@ import { useEffect } from 'react';
 
 import { actFetchHeThongRap } from './module/action';
 import "./style.css"
-import DanhSachCumRap from './DanhSachCumRap';
+import DanhSachCumRapTheoPhim from './DanhSachCumRapTheoPhim';
+import { NavLink } from 'react-router-dom';
 
-export default function MuaVeTheoPhim() {
+export default function MuaVeTheoPhim(props) {
+    const {id} = props.match.params;
+    // console.log(id)
     const dataHeThong = useSelector(state => state.listHeThongRapReducer.dataHeThongRap)
     // console.log(dataHeThong)
     const dispatch = useDispatch()
@@ -15,13 +18,15 @@ export default function MuaVeTheoPhim() {
         dispatch(actFetchHeThongRap())
     }, [])
 
-    const [idHeThong, setIdHeThong] = React.useState("")
-    // console.log(idHeThong)
+    const [isChoose, setIsChoose] = React.useState(false)
     const renderDanhSachCumRap = () => {
-        if (idHeThong !== "") {
+        if (isChoose) {
+            const {idHeThong} = props.match.params
+            console.log(idHeThong)
             return (
-                <DanhSachCumRap
-                    id={idHeThong}
+                <DanhSachCumRapTheoPhim
+                idHeThong = {idHeThong}
+                id = {id}
                 />
             )
         }
@@ -31,13 +36,14 @@ export default function MuaVeTheoPhim() {
         return dataHeThong?.map((heThong) => {
             // console.log(heThong)
             return (
-                <button
+                <NavLink
                     key={heThong.maHeThongRap}
                     className='heThongRapButton'
-                    onClick={() => setIdHeThong(`${heThong.maHeThongRap}`)}
+                    to={`/mua-ve-theo-phim/${id}/danh-sach-cum-rap/${heThong.maHeThongRap}`}
+                    onClick={() => setIsChoose(true)}
                 >
                     <img src={heThong.logo} />
-                </button>
+                </NavLink>
             )
         })
     }
