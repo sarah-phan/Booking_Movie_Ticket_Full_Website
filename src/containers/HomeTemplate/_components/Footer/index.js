@@ -8,7 +8,7 @@ export default function FooterHome() {
             <div className='footerContent container' style={{ paddingTop: 25 }}>
                 <div className='row'>
                     <div className='col-4'>
-                        <img src='/image/Logo.png' width="80%" />
+                        <img src='/image/Logo.png' width="65%" />
                     </div>
                     <div className='col-4'>
                         <ul>
@@ -20,9 +20,6 @@ export default function FooterHome() {
                             </li>
                             <li>
                                 <NavLink to={"/rap-chieu-phim"}> Rạp chiếu phim </NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={"/mua-ve"}> Mua vé </NavLink>
                             </li>
                         </ul>
                     </div>

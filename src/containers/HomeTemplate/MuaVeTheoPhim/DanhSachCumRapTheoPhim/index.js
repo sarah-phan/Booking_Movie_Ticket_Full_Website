@@ -3,39 +3,50 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 import { actFetchListCumRap } from './module/action';
-import { data } from 'jquery';
+import Loading from '../../../../components/loading';
+
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import List from '@mui/material/List';
 
 export default function DanhSachCumRapTheoPhim(props) {
-    // console.log(props)
-    const {idHeThong, id} = props
-    // console.log(idHeThong, id)
+    const { idHeThong, id } = props
 
     const dataCumRap = useSelector(state => state.listCumRapReducer.data)
+    const loading = useSelector(state => state.listCumRapReducer.loading)
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(actFetchListCumRap(idHeThong))
-    }, [])
-    console.log(dataCumRap)
+    }, [idHeThong])
 
+    const [open, setOpen] = React.useState(true);
+
+    const handleClick = () => {
+        setOpen(!open);
+    };
     const renderListCumRap = () => {
         return dataCumRap?.map((cumRap, index) => {
-            return(
-                <a key={index} className="list-group-item list-group-item-action" id={cumRap.maCumRap} data-toggle="list" href="..." role="tab" aria-controls={cumRap.tenCumRap}>{cumRap.tenCumRap}</a>
+            return (
+                <List>
+                    <ListItemButton onClick={handleClick}>
+                        <ListItemText primary={cumRap.tenCumRap} />
+                        {open ? <ExpandLess /> : <ExpandMore />}
+                    </ListItemButton>
+                </List>
             )
         })
     }
+
+    if (loading) {
+        return <Loading />
+    }
     return (
         <>
-            <div className='col-4'>
-                <div className='list-group' id='list-tab' role="tablist">
-                    {renderListCumRap()}
-                </div>
-            </div>
-            <div className='col-8'>
-                <div className="tab-content" id="nav-tabContent">
-                    
-                </div>
+            <div className='col-12'>
+                {renderListCumRap()}
             </div>
         </>
     );

@@ -2,7 +2,9 @@
     border-radius: 50%;
     background-color: white;
     border: none;
-    margin-right: 7%;
+    margin: 0 52px;
+    margin-top: 15px;
+    padding: 0;
 }
 .heThongRapButton img{
     width: 80px;

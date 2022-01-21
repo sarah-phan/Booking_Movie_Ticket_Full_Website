@@ -20,12 +20,6 @@ const routesHome = [
         path: "/rap-chieu-phim",
         component: lazy(() => import ("../containers/HomeTemplate/RapChieuPhim")),
     },
-    // Mua vé theo rạp
-    {
-        exact: false,
-        path: "/mua-ve-theo-rap",
-        component: lazy(() => import ("../containers/HomeTemplate/MuaVeTheoRap")),
-    },
     // Chi tiết phim
     {
         exact: false,
@@ -39,12 +33,12 @@ const routesHome = [
         component: lazy(() => import ("../containers/HomeTemplate/MuaVeTheoPhim"))
     },
     // Danh sách cụm rạp (lịch chiếu theo phim)
-    //switch chỉ qua 1 route nên cần exact ddeer switch ko match với route trước => exact của mua-ve-theo-phim = true
-    {
-        exact: false,
-        path: "/mua-ve-theo-phim/:id/danh-sach-cum-rap/:idHeThong",
-        component: lazy(() => import ("../containers/HomeTemplate/MuaVeTheoPhim"))
-    }
+    //switch chỉ qua 1 route nên cần exact để switch ko match với route trước => exact của mua-ve-theo-phim = true
+    // {
+    //     exact: false,
+    //     path: "/mua-ve-theo-phim/:id/danh-sach-cum-rap/:idHeThong",
+    //     component: lazy(() => import ("../containers/HomeTemplate/MuaVeTheoPhim"))
+    // }
 ];
 
 export const renderRoutesHome = () => {
