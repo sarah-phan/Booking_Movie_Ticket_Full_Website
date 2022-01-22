@@ -1,28 +1,28 @@
 import * as ActionType from "./constants"
 
-const inistialState = {
-    data: null,
-    error: null,
+const initialState = {
+    dataCumRap: null,
+    errorCumRap: null,
     loading: false,
 }
 
-export const listCumRapReducer = (state = inistialState, action) => {
+export const listCumRapReducer = (state = initialState, action) => {
     switch (action.type) {
         case ActionType.LIST_CUM_RAP_REQUEST: {
-            state.data = null;
-            state.error = null;
+            state.dataCumRap = null;
+            state.errorCumRap = null;
             state.loading = true;
             return {...state}
         }
         case ActionType.LIST_CUM_RAP_SUCCESS: {
-            state.data = action.payload;
-            state.error = null;
+            state.dataCumRap = action.payload;
+            state.errorCumRap = null;
             state.loading = false;
             return{...state}
         }
         case ActionType.LIST_CUM_RAP_FAILED: {
-            state.data = null;
-            state.error = action.payload;
+            state.dataCumRap = null;
+            state.errorCumRap = action.payload;
             state.loading = false;
             return{...state}
         }

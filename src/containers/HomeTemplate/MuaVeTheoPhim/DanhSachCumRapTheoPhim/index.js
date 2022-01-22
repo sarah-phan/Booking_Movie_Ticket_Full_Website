@@ -4,17 +4,13 @@ import { useEffect } from 'react';
 
 import { actFetchListCumRap } from './module/action';
 import Loading from '../../../../components/loading';
+import LichChieuTheoPhim from './LichChieuTheoPhim';
 
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
-import List from '@mui/material/List';
 
 export default function DanhSachCumRapTheoPhim(props) {
     const { idHeThong, id } = props
 
-    const dataCumRap = useSelector(state => state.listCumRapReducer.data)
+    const dataCumRap = useSelector(state => state.listCumRapReducer.dataCumRap)
     const loading = useSelector(state => state.listCumRapReducer.loading)
     const dispatch = useDispatch()
 
@@ -22,20 +18,35 @@ export default function DanhSachCumRapTheoPhim(props) {
         dispatch(actFetchListCumRap(idHeThong))
     }, [idHeThong])
 
-    const [open, setOpen] = React.useState(true);
+    const [idCumRap, setIdCumRap] = React.useState("")
+    const renderLichChieu = () => {
+        if (idCumRap !== null) {
+            return (
+                <LichChieuTheoPhim
+                    idHeThong={idHeThong}
+                    idCumRapChon={idCumRap}
+                    id={id}
+                />
+            )
+        }
+    }
 
-    const handleClick = () => {
-        setOpen(!open);
-    };
     const renderListCumRap = () => {
         return dataCumRap?.map((cumRap, index) => {
             return (
-                <List>
-                    <ListItemButton onClick={handleClick}>
-                        <ListItemText primary={cumRap.tenCumRap} />
-                        {open ? <ExpandLess /> : <ExpandMore />}
-                    </ListItemButton>
-                </List>
+                <a
+                    className="list-group-item list-group-item-action"
+                    id={cumRap.maCumRap}
+                    data-toggle="list"
+                    aria-controls={cumRap.tenCumRap}
+                    key={index}
+                    onClick={() => setIdCumRap(`${cumRap.maCumRap}`)}
+                >
+                    {cumRap.tenCumRap}
+                    <div className='diaChiCumRap'>
+                        <p style={{ marginBottom: 0 }}>Địa chỉ: <span>{cumRap.diaChi}</span></p>
+                    </div>
+                </a>
             )
         })
     }
@@ -45,8 +56,13 @@ export default function DanhSachCumRapTheoPhim(props) {
     }
     return (
         <>
-            <div className='col-12'>
-                {renderListCumRap()}
+            <div className='col-5'>
+                <div className="list-group" id="list-tab" role="tablist">
+                    {renderListCumRap()}
+                </div>
+            </div>
+            <div className='col-7'>
+                {renderLichChieu()}
             </div>
         </>
     );
