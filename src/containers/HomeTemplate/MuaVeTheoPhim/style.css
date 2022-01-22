@@ -2,7 +2,9 @@
     border-radius: 50%;
     background-color: white;
     border: none;
-    margin-right: 7%;
+    margin: 0 52px;
+    margin-top: 15px;
+    padding: 0;
 }
 .heThongRapButton img{
     width: 80px;
@@ -19,4 +21,104 @@
     font-weight: 700;
     font-size: 25px;
     text-align: center;
+}
+.list-group{
+    margin-top: 55px;
+}
+.list-group .list-group-item {
+    background-color: #f6f6e9;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.list-group-item-action{
+    color:#7b3911;
+    font-weight: 700;
+}
+.diaChiCumRap{
+    margin-top: 10px;
+    font-weight: normal;
+    font-size: 15px;
+}
+.list-group-item-action:hover, .list-group-item-action:hover p{
+    background-color: thistle;
+    color: black;
+}
+
+.list-group-item.active, .list-group-item.active p{
+    background-color: thistle;
+    color: black;
+    border: 1px solid thistle;
+}
+.col-5{
+    padding-right: 0;
+}
+.col-7, .tab-content{
+    background-color: #f6f6e9;
+    margin-top: 55px;
+}
+.tab-content{
+    color: #7b3911;
+}
+.thongTinPhim{
+    margin-bottom: 35px;
+}
+.thongTinPhim .col-8{
+    margin-top: 35px;
+}
+.thongTinPhim p:first-of-type{
+    font-weight: 800;
+}
+.btnChonLichChieu{
+    border: 1px solid #937EA8;
+    background-color: #937EA8;
+    color: white;
+    display: block;
+    text-align: center;
+    position: relative;
+}
+
+.btnChonLichChieu::after,
+.btnChonLichChieu::before {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    transition: .5s;
+}
+
+.btnChonLichChieu::after {
+    top: -3px;
+    left: -3px;
+    border-top: 3px solid transparent;
+    border-left: 3px solid transparent;
+}
+
+.btnChonLichChieu::before {
+    bottom: -3px;
+    right: -3px;
+    border-bottom: 3px solid transparent;
+    border-right: 3px solid transparent;
+}
+
+.btnChonLichChieu:hover {
+    background-color: #f6f6e9;
+    border: 1px solid black;
+    color: #222222;
+}
+
+.btnChonLichChieu:hover::after,
+.btnChonLichChieu:hover::before {
+    width: calc(50% + 3px);
+    height: calc(50% + 3px);
+    border-color: #222222;
+}
+.row .col-3{
+    margin-top: 10px;
+}
+.thongBao img{
+    width: 50%;
+}
+.thongBao{
+    margin-top: 30px;
+    margin-left: 25%;
 }

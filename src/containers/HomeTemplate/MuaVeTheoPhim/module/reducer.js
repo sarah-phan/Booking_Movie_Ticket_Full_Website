@@ -3,8 +3,6 @@ import * as ActionType from "./constants"
 const initialState = {
     dataHeThongRap: null,
     errorHeThongRap: null,
-    dataCumRap: null,
-    errorCumRap: null,
     loading: false,
 }
 

@@ -4,6 +4,7 @@ import { listPhimReducer } from "../containers/HomeTemplate/_components/ModuleRe
 import { detailMovieReducer } from "../containers/HomeTemplate/DetailPhim/module/reducer";
 import { listHeThongRapReducer } from "../containers/HomeTemplate/MuaVeTheoPhim/module/reducer";
 import { listCumRapReducer } from "../containers/HomeTemplate/MuaVeTheoPhim/DanhSachCumRapTheoPhim/module/reducer";
+import { listLichChieuReducer } from "../containers/HomeTemplate/MuaVeTheoPhim/DanhSachCumRapTheoPhim/LichChieuTheoPhim/module/reducer";
 
 export const rootReducer = combineReducers({
     listBannerReducer,
@@ -11,4 +12,5 @@ export const rootReducer = combineReducers({
     detailMovieReducer,
     listHeThongRapReducer,
     listCumRapReducer,
+    listLichChieuReducer,
 })

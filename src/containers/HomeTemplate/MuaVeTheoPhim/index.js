@@ -1,28 +1,26 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-
 import { actFetchHeThongRap } from './module/action';
 import "./style.css"
 import DanhSachCumRapTheoPhim from './DanhSachCumRapTheoPhim';
-import { NavLink } from 'react-router-dom';
+import  Loading from "../../../components/loading"
 
 export default function MuaVeTheoPhim(props) {
     const {id} = props.match.params;
-    // console.log(id)
     const dataHeThong = useSelector(state => state.listHeThongRapReducer.dataHeThongRap)
-    // console.log(dataHeThong)
+    const loading = useSelector(state => state.listHeThongRapReducer.loading)
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(actFetchHeThongRap())
+        
     }, [])
 
-    const [isChoose, setIsChoose] = React.useState(false)
+    const [idHeThong, setIdHeThong] = React.useState("BHDStar")
+    
     const renderDanhSachCumRap = () => {
-        if (isChoose) {
-            const {idHeThong} = props.match.params
-            console.log(idHeThong)
+        if (idHeThong !== null) {
             return (
                 <DanhSachCumRapTheoPhim
                 idHeThong = {idHeThong}
@@ -32,22 +30,27 @@ export default function MuaVeTheoPhim(props) {
         }
     }
 
+    if (loading){
+        return <Loading/>
+    }
+    
     const renderHeThongRap = () => {
         return dataHeThong?.map((heThong) => {
-            // console.log(heThong)
             return (
-                <NavLink
+                <button
                     key={heThong.maHeThongRap}
                     className='heThongRapButton'
-                    to={`/mua-ve-theo-phim/${id}/danh-sach-cum-rap/${heThong.maHeThongRap}`}
-                    onClick={() => setIsChoose(true)}
+                    onClick={() => setIdHeThong(`${heThong.maHeThongRap}`)}
                 >
                     <img src={heThong.logo} />
-                </NavLink>
+                </button>
             )
         })
     }
 
+    if(loading){
+        <Loading/>
+    }
     return (
         <div className='heThongRap container'>
             <h2>Lịch Chiếu</h2>
@@ -55,7 +58,7 @@ export default function MuaVeTheoPhim(props) {
                 {renderHeThongRap()}
             </div>
             <div className='cumRap row'>
-            {renderDanhSachCumRap()}
+                {renderDanhSachCumRap()}
             </div>
         </div>
     )
