@@ -1,13 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-
-import { actFetchListCumRap } from '../../../../reducer/ModuleHeThongRapChieu/DanhSachCumRapChieu/action';
 import Loading from '../../../../components/loading';
-import LichChieuTheoPhim from './LichChieuTheoPhim';
+import LichChieuTheoHeThong from './LichChieu';
+import { actFetchListCumRap } from '../../../../reducer/ModuleHeThongRapChieu/DanhSachCumRapChieu/action';
 
-export default function DanhSachCumRapTheoPhim(props) {
+export default function DanhSachCumRap(props) {
     const { idHeThong, id } = props
+
     const dataCumRap = useSelector(state => state.listCumRapReducer.dataCumRap)
     const loading = useSelector(state => state.listCumRapReducer.loading)
     const dispatch = useDispatch()
@@ -20,7 +20,7 @@ export default function DanhSachCumRapTheoPhim(props) {
     const renderLichChieu = () => {
         if (idCumRap !== null) {
             return (
-                <LichChieuTheoPhim
+                <LichChieuTheoHeThong
                     idHeThong={idHeThong}
                     idCumRapChon={idCumRap}
                     id={id}
@@ -60,9 +60,7 @@ export default function DanhSachCumRapTheoPhim(props) {
                 </div>
             </div>
             <div className='col-7'>
-                <div className="tab-content" id="nav-tabContent">
-                    {renderLichChieu()}
-                </div>
+                {renderLichChieu()}
             </div>
         </>
     );

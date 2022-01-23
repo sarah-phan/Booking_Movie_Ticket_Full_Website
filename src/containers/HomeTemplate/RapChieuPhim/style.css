@@ -112,13 +112,3 @@
     height: calc(50% + 3px);
     border-color: #222222;
 }
-.row .col-3{
-    margin-top: 10px;
-}
-.thongBao img{
-    width: 100%;
-}
-.thongBao{
-    margin-top: 30px;
-    margin-left: 25%;
-}

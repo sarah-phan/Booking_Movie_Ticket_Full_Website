@@ -1,0 +1,47 @@
+.muaVe{
+    border: 1px solid #937EA8;
+    background-color: #937EA8;
+    color: white;
+    padding: 10px  15px;
+    margin: 15px auto 20px;
+    display: block;
+    width: 38%;
+    text-align: center;
+    position: relative;
+}
+.muaVe::after,
+.muaVe::before {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    transition: .5s;
+}
+
+.muaVe::after {
+    top: -3px;
+    left: -3px;
+    border-top: 3px solid transparent;
+    border-left: 3px solid transparent;
+}
+
+.muaVe::before {
+    bottom: -3px;
+    right: -3px;
+    border-bottom: 3px solid transparent;
+    border-right: 3px solid transparent;
+}
+
+.muaVe:hover {
+    background-color: #f6f6e9;
+    border: 1px solid black;
+    color: #222222;
+    text-decoration: none;
+}
+
+.muaVe:hover::after,
+.muaVe:hover::before {
+    width: calc(50% + 3px);
+    height: calc(50% + 3px);
+    border-color: #222222;
+}

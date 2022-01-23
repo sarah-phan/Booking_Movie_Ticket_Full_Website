@@ -3,9 +3,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
-
+import { NavLink } from 'react-router-dom';
 import { actFetchDetailMovie } from './module/action'
 import Loading from '../../../components/loading';
+import "./style.css"
 
 
 export default function DetailPhim(props) {
@@ -48,6 +49,7 @@ export default function DetailPhim(props) {
                         <span style={{fontSize:20, fontWeight: 800}}>{data?.moTa}</span>
                         <span style={{ display: "block", paddingTop: 15 }}>Ngày khởi chiếu</span>
                         <span style={{fontSize:20, fontWeight: 800}}>{new Date(data?.ngayKhoiChieu).toLocaleDateString()}</span>
+                        <NavLink to={`/mua-ve-theo-phim/${id}`} className='muaVe'>Mua vé</NavLink> 
                     </div>
                 </div>
             </div>
