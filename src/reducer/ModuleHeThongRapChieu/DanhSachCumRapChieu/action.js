@@ -1,4 +1,4 @@
-import { api } from "../../../../../utils/apiUtils"
+import { api } from "../../../utils/apiUtils"
 import * as ActionType from "./constants"
 
 export const actFetchListCumRap = (id) => {

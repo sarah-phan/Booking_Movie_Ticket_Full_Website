@@ -1,10 +1,11 @@
 import { combineReducers } from "redux";
 import { listBannerReducer } from "../containers/HomeTemplate/_components/Carousel/module/reducer";
-import { listPhimReducer } from "../containers/HomeTemplate/_components/ModuleRenderListPhim/reducer";
+import { listPhimReducer } from "./ModuleListPhim/reducer";
 import { detailMovieReducer } from "../containers/HomeTemplate/DetailPhim/module/reducer";
-import { listHeThongRapReducer } from "../containers/HomeTemplate/MuaVeTheoPhim/module/reducer";
-import { listCumRapReducer } from "../containers/HomeTemplate/MuaVeTheoPhim/DanhSachCumRapTheoPhim/module/reducer";
+import { listHeThongRapReducer } from "./ModuleHeThongRapChieu/DanhSachHeThongRapChieu/reducer";
+import { listCumRapReducer } from "./ModuleHeThongRapChieu/DanhSachCumRapChieu/reducer";
 import { listLichChieuReducer } from "../containers/HomeTemplate/MuaVeTheoPhim/DanhSachCumRapTheoPhim/LichChieuTheoPhim/module/reducer";
+import { listLichChieuTheoHeThongReducer } from "../containers/HomeTemplate/RapChieuPhim/DanhSachCumRap/LichChieu/module/reducer";
 
 export const rootReducer = combineReducers({
     listBannerReducer,
@@ -13,4 +14,5 @@ export const rootReducer = combineReducers({
     listHeThongRapReducer,
     listCumRapReducer,
     listLichChieuReducer,
+    listLichChieuTheoHeThongReducer,
 })

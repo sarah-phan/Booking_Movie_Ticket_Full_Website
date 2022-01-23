@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 
 import CarouselHome from '../_components/Carousel'
 import "./style.css"
-import { actFetchListPhim } from '../_components/ModuleRenderListPhim/action'
+import { actFetchListPhim } from '../../../reducer/ModuleListPhim/action'
 import PhimHot from './PhimHot'
 
 export default function TrangChu() {

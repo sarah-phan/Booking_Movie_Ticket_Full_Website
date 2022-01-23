@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import CarouselHome from "../_components/Carousel"
 import "./style.css"
-import { actFetchListPhim } from '../_components/ModuleRenderListPhim/action'
 
 import ListPhim from './ListPhim'
 import Loading from '../../../components/loading'
+import {actFetchListPhim } from "./../../../reducer/ModuleListPhim/action";
 
 export default function PhimChieuRap() {
     const data = useSelector(state => state.listPhimReducer.data)

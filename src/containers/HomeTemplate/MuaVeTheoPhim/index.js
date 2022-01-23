@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { actFetchHeThongRap } from './module/action';
+import { actFetchHeThongRap } from '../../../reducer/ModuleHeThongRapChieu/DanhSachHeThongRapChieu/action';
 import "./style.css"
 import DanhSachCumRapTheoPhim from './DanhSachCumRapTheoPhim';
 import  Loading from "../../../components/loading"
@@ -14,7 +14,6 @@ export default function MuaVeTheoPhim(props) {
 
     useEffect(() => {
         dispatch(actFetchHeThongRap())
-        
     }, [])
 
     const [idHeThong, setIdHeThong] = React.useState("BHDStar")
