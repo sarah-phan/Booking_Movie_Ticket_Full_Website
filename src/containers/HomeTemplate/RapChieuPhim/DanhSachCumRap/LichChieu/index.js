@@ -27,6 +27,9 @@ export default function LichChieuTheoHeThong(props) {
                                 <p style={{fontSize: 25, marginTop: 12}}>{lichChieu.tenPhim}</p>
                                 <DanhSachLichChieu
                                 lichChieu = {lichChieu}
+                                idHeThong = {idHeThong}
+                                idCumRapChon = {idCumRapChon}
+                                id = {id}
                                 />
                             </div>
                          </div>

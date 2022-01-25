@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { actFetchLichChieu } from './module/action';
 import { actFetchDetailMovie } from '../../../DetailPhim/module/action';
 import NumberFormat from 'react-number-format'
+import { NavLink } from 'react-router-dom';
 
 export default function LichChieuTheoPhim(props) {
     const { idCumRapChon, id, idHeThong } = props;
@@ -15,6 +16,24 @@ export default function LichChieuTheoPhim(props) {
         dispatch(actFetchDetailMovie(id))
     }, [])
 
+    const checkIsLogin = () => {
+        // to={`/dang-nhap/${id}/${idHeThong}/${idCumRapChon}`}
+        console.log(JSON.parse(localStorage.getItem("UserAccount")))
+        if (JSON.parse(localStorage.getItem("UserAccount")) === null) {
+            return (
+                <NavLink to={`/dang-nhap/${id}/${idHeThong}/${idCumRapChon}`} className='btnChonLichChieu'>
+                    Chọn
+                </NavLink>
+            )
+        }
+        if (JSON.parse(localStorage.getItem("UserAccount")) !== null) {
+            return (
+                <NavLink to={`/dat-cho/${id}/${idHeThong}/${idCumRapChon}`} className='btnChonLichChieu'>
+                    Chọn
+                </NavLink>
+            )
+        }
+    }
     const renderLichChieu = () => {
         // data là 1 object, phải vào thẳng heThongRapChieu mới là array
         const indexHeThong = data?.heThongRapChieu.findIndex(lichChieu => lichChieu.maHeThongRap === idHeThong)
@@ -22,42 +41,19 @@ export default function LichChieuTheoPhim(props) {
             const indexCumRap = data?.heThongRapChieu[indexHeThong].cumRapChieu?.findIndex(lichChieu => lichChieu.maCumRap === idCumRapChon)
             if (indexCumRap !== -1) {
                 return data?.heThongRapChieu[indexHeThong].cumRapChieu[indexCumRap].lichChieuPhim.map((lichChieu, index) => {
-                    let displayContent = idCumRapChon === null ? "none" : "block"
                     return (
-                        <div className="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby={idCumRapChon} key={index} display={displayContent}>
-                            <div className='thongTinPhim row'>
-                                <div className='col-4' >
-                                    <img src={dataPhim?.hinhAnh} width={"100%"} />
-                                </div>
-                                <div className='col-8' >
-                                    <p>{dataPhim?.tenPhim}</p>
-                                    <p>{dataPhim?.moTa}</p>
-                                </div>
+                        <div className='row' key={index}>
+                            <div className='col-3'>
+                                <p>{new Date(lichChieu.ngayChieuGioChieu).toLocaleDateString()}</p>
                             </div>
-                            <div className='row'>
-                                <div className='col-3'>
-                                    Ngày chiếu
-                                </div>
-                                <div className='col-3'>
-                                    Giờ chiếu
-                                </div>
-                                <div className='col-3'>
-                                    Giá vé
-                                </div>
+                            <div className='col-3'>
+                                <p>{new Date(lichChieu.ngayChieuGioChieu).toLocaleTimeString()}</p>
                             </div>
-                            <div className='row'>
-                                <div className='col-3'>
-                                    <p>{new Date(lichChieu.ngayChieuGioChieu).toLocaleDateString()}</p>
-                                </div>
-                                <div className='col-3'>
-                                    <p>{new Date(lichChieu.ngayChieuGioChieu).toLocaleTimeString()}</p>
-                                </div>
-                                <div className='col-3'>
-                                    <NumberFormat value={lichChieu.giaVe} suffix='VND' thousandSeparator={true} displayType='text' />
-                                </div>
-                                <div className='col-3'>
-                                    <button className='btnChonLichChieu'>Chọn</button>
-                                </div>
+                            <div className='col-3'>
+                                <NumberFormat value={lichChieu.giaVe} suffix='VND' thousandSeparator={true} displayType='text' />
+                            </div>
+                            <div className='col-3'>
+                                {checkIsLogin()}
                             </div>
                         </div>
                     )
@@ -76,8 +72,27 @@ export default function LichChieuTheoPhim(props) {
     }
 
     return (
-
-        <div>
+        <div className="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby={idCumRapChon}>
+            <div className='thongTinPhim row'>
+                <div className='col-4' >
+                    <img src={dataPhim?.hinhAnh} width={"100%"} />
+                </div>
+                <div className='col-8' >
+                    <p>{dataPhim?.tenPhim}</p>
+                    <p style={{ fontWeight: "normal" }}>{dataPhim?.moTa}</p>
+                </div>
+            </div>
+            <div className='row' style={{ fontWeight: "normal" }}>
+                <div className='col-3'>
+                    Ngày chiếu
+                </div>
+                <div className='col-3'>
+                    Giờ chiếu
+                </div>
+                <div className='col-3'>
+                    Giá vé
+                </div>
+            </div>
             {renderLichChieu()}
         </div>
 

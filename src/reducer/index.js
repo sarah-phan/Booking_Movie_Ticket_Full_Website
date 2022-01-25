@@ -6,6 +6,8 @@ import { listHeThongRapReducer } from "./ModuleHeThongRapChieu/DanhSachHeThongRa
 import { listCumRapReducer } from "./ModuleHeThongRapChieu/DanhSachCumRapChieu/reducer";
 import { listLichChieuReducer } from "../containers/HomeTemplate/MuaVeTheoPhim/DanhSachCumRapTheoPhim/LichChieuTheoPhim/module/reducer";
 import { listLichChieuTheoHeThongReducer } from "../containers/HomeTemplate/RapChieuPhim/DanhSachCumRap/LichChieu/module/reducer";
+import { loginReducer } from "../containers/HomeTemplate/LoginTheoPhim/Module/reducer";
+import { loginTrangChuReducer } from "../containers/HomeTemplate/LoginTrangChu/module/reducer";
 
 export const rootReducer = combineReducers({
     listBannerReducer,
@@ -15,4 +17,6 @@ export const rootReducer = combineReducers({
     listCumRapReducer,
     listLichChieuReducer,
     listLichChieuTheoHeThongReducer,
+    loginReducer,
+    loginTrangChuReducer,
 })

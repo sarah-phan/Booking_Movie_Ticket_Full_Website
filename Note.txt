@@ -15,3 +15,10 @@ Mã màu sử dụng:
 #dc661f - background cam
 #937EA8 - button tím
 
+"taiKhoan": "1234",
+"hoTen": "changedk",
+"email": "cybersoft@gmail.com.zbc",
+"soDt": "0123456000",
+"matKhau": "123456789",
+"maLoaiNguoiDung": "KhachHang"
+

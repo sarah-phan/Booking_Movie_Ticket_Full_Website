@@ -1,8 +1,29 @@
 import React from 'react';
 import NumberFormat from 'react-number-format'
+import { NavLink } from 'react-router-dom';
 
 export default function DanhSachLichChieu(props) {
-    const { lichChieu } = props
+    const { lichChieu, id, idHeThong, idCumRapChon } = props
+
+    const checkIsLogin = () => {
+        // to={`/dang-nhap/${id}/${idHeThong}/${idCumRapChon}`}
+        console.log(JSON.parse(localStorage.getItem("UserAccount")))
+        if (JSON.parse(localStorage.getItem("UserAccount")) === null) {
+            return (
+                <NavLink to={`/dang-nhap/${id}/${idHeThong}/${idCumRapChon}`} className='btnChonLichChieu'>
+                    Chọn
+                </NavLink>
+            )
+        }
+        if (JSON.parse(localStorage.getItem("UserAccount")) !== null) {
+            return (
+                <NavLink to={`/dat-cho/${id}/${idHeThong}/${idCumRapChon}`} className='btnChonLichChieu'>
+                    Chọn
+                </NavLink>
+            )
+        }
+    }
+
     const renderDanhSachLichChieu = () => {
         return lichChieu.lstLichChieuTheoPhim.map((lichChieuPhim) => {
             return (
@@ -17,7 +38,7 @@ export default function DanhSachLichChieu(props) {
                         <NumberFormat value={lichChieuPhim.giaVe} displayType='text' suffix='VND' thousandSeparator={true}/>
                     </div>
                     <div className='col-3'>
-                        <button className='btnChonLichChieu'>Chọn</button>
+                    {checkIsLogin()}
                     </div>
                 </>
             )

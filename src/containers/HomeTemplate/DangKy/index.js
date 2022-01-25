@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function DatCho() {
+export default function DangKy() {
   return <div></div>;
 }
