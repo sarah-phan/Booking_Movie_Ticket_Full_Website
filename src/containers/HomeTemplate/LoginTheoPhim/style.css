@@ -65,6 +65,11 @@
     border-color: #222222;
 }
 .dangKy{
-    text-align: center;
     font-size: 15px;
+    margin-top: 20px;
+    margin-left: 23%;
+}
+.signupLink{
+    font-weight: 800;
+    font-size: 20px;
 }

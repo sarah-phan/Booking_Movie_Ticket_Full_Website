@@ -57,8 +57,13 @@ const routesHome = [
     {
         exact: false, 
         path: "/dang-ky",
-        component: lazy(() => import ("../containers/HomeTemplate/DangKy"))
-    },    
+        component: lazy(() => import ("../containers/HomeTemplate/DangKyTrangChu"))
+    }, 
+    {
+        exact: false, 
+        path: "/dang-ky-theo-phim/:id/:idHeThong/:idCumRap",
+        component: lazy(() => import ("../containers/HomeTemplate/DangKyTheoPhim"))
+    },     
 ];
 
 export const renderRoutesHome = () => {

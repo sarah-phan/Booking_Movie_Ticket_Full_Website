@@ -15,9 +15,11 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import "./style.css"
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { actLoginTrangChu } from './module/action';
+import Loading from '../../../components/loading';
 
 export default function LoginTrangChu(props) {
     const error = useSelector(state => state.loginTrangChuReducer.error)
+    const loading = useSelector(state => state.loginTrangChuReducer.loading)
     const dispatch = useDispatch()
 
     const [values, setValues] = React.useState({
@@ -39,7 +41,6 @@ export default function LoginTrangChu(props) {
             ...values,
             [prop]: event.target.value
         });
-        console.log(values)
     };
 
 
@@ -55,17 +56,23 @@ export default function LoginTrangChu(props) {
         dispatch(actLoginTrangChu(values, props.history))
     }
 
+    if(loading){
+        return(
+            <Loading/>
+        )
+    }
+
     return (
         <div className='container'>
             <div className='loginBox row'>
-                <div className='col-4' >
-                    <img src='/image/Logobrand.png' width={"140%"} />
+                <div className='col-5' >
+                    <img src='/image/Logobrand.png' width={"100%"} style={{marginTop: 30}} />
                 </div>
-                <div className='col-8'>
+                <div className='col-7'>
                     <h2>Đăng nhập</h2>
                     {notification()}
                     <form onSubmit={handleLogin}>
-                        <Box className="textField" sx={{ display: 'flex', alignItems: 'flex-end', }}>
+                        <Box className="textField" sx={{ }}>
                             <TextField
                                 type="text"
                                 id="taiKhoan"
@@ -75,7 +82,7 @@ export default function LoginTrangChu(props) {
                                 onChange={handleChange('taiKhoan')}
                             ></TextField>
                         </Box>
-                        <Box className="textField" sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                        <Box className="textField">
                             <FormControl sx={{ m: 1, width: '40ch' }} variant="outlined">
                                 <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                                 <OutlinedInput

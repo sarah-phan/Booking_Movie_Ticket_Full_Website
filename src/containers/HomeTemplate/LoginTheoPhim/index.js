@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import TextField from '@mui/material/TextField';
@@ -67,14 +68,14 @@ export default function LoginTheoPhim(props) {
     return (
         <div className='container'>
             <div className='loginBox row'>
-                <div className='col-4' >
+                <div className='col-5' width="100%">
                     <img src='/image/DangNhap.png' width={"100%"} />
                 </div>
-                <div className='col-8'>
+                <div className='col-7'>
                     <h2>Đăng nhập</h2>
                     {notification()}
                     <form onSubmit={handleLogin}>
-                        <Box className="textField" sx={{ display: 'flex', alignItems: 'flex-end', }}>
+                        <Box className="textField">
                             <TextField
                                 type="text"
                                 id="taiKhoan"
@@ -84,7 +85,7 @@ export default function LoginTheoPhim(props) {
                                 onChange={handleChange('taiKhoan')}
                             ></TextField>
                         </Box>
-                        <Box className="textField" sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                        <Box className="textField">
                             <FormControl sx={{ m: 1, width: '40ch' }} variant="outlined">
                                 <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                                 <OutlinedInput
@@ -110,7 +111,10 @@ export default function LoginTheoPhim(props) {
                         </Box>
                         <button type='submit' className='dangNhapButton'>Đăng Nhập</button>
                     </form>
-                    <p className='dangKy'>Chưa có tài khoản? </p>
+                    <p className='dangKy'>
+                        Chưa có tài khoản? 
+                        <NavLink to = {`/dang-ky-theo-phim/${id}/${idHeThong}/${idCumRap}`} className = "signupLink"> Đăng Ký</NavLink>
+                    </p>
                 </div>
             </div>
         </div>

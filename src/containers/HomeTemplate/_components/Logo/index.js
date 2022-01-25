@@ -8,8 +8,13 @@ export default function Logo() {
             return (
                 <>
                     <NavLink to='/dang-nhap' style={{ marginRight: 20 }}>Đăng nhập</NavLink>
-                    {/* <NavLink href='#'>Đăng ký</NavLink> */}
+                    <NavLink to='/dang-ky'>Đăng ký</NavLink>
                 </>
+            )
+        }
+        else{
+            return(
+                <p style={{color: "white"}}>Chào, <span>{JSON.parse(localStorage.getItem("UserAccount")).taiKhoan}</span></p>
             )
         }
     }
