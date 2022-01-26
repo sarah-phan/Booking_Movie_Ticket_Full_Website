@@ -1,0 +1,61 @@
+.signup{
+    background-color: #f6f6e9;
+    margin-top: 70px;
+    margin-bottom: 100px;
+    color: #7b3911;
+}
+.signupForm h2{
+    font-weight: 700;
+    text-align: center;
+}
+.signupForm{
+    margin-top: 10px;
+    text-align: center;
+}
+.signupButton{
+    border: 1px solid #937EA8;
+    background-color: #937EA8;
+    color: white;
+    padding: 10px  15px;
+    margin: 25px auto 25px;
+    display: block;
+    width: 32%;
+    text-align: center;
+    position: relative;
+}
+.signupButton::after,
+.signupButton::before {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    transition: .5s;
+}
+
+.signupButton::after {
+    top: -3px;
+    left: -3px;
+    border-top: 3px solid transparent;
+    border-left: 3px solid transparent;
+}
+
+.signupButton::before {
+    bottom: -3px;
+    right: -3px;
+    border-bottom: 3px solid transparent;
+    border-right: 3px solid transparent;
+}
+
+.signupButton:hover {
+    background-color: #f6f6e9;
+    border: 1px solid black;
+    color: #222222;
+    font-weight: 700;
+}
+
+.signupButton:hover::after,
+.signupButton:hover::before {
+    width: calc(50% + 3px);
+    height: calc(50% + 3px);
+    border-color: #222222;
+}

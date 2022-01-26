@@ -1,7 +1,23 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min'
 import "./style.css"
 
 export default function Logo() {
+    const checkLogin = () => {
+        if (JSON.parse(localStorage.getItem("UserAccount")) === null) {
+            return (
+                <>
+                    <NavLink to='/dang-nhap' style={{ marginRight: 20 }}>Đăng nhập</NavLink>
+                    <NavLink to='/dang-ky'>Đăng ký</NavLink>
+                </>
+            )
+        }
+        else{
+            return(
+                <p style={{color: "white"}}>Chào, <span>{JSON.parse(localStorage.getItem("UserAccount")).taiKhoan}</span></p>
+            )
+        }
+    }
     return (
         <div className='header'>
             <div className='logo'>
@@ -17,8 +33,7 @@ export default function Logo() {
                 </div>
             </div>
             <div className='login'>
-                <a href='#' style={{marginRight: 20}}>Đăng nhập</a>
-                <a href='#'>Đăng ký</a>
+                {checkLogin()}
             </div>
         </div>
 

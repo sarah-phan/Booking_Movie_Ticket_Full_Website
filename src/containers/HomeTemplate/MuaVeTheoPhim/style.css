@@ -68,6 +68,9 @@
 .thongTinPhim p:first-of-type{
     font-weight: 800;
 }
+.col-3{
+    padding: 0 30px;
+}
 .btnChonLichChieu{
     border: 1px solid #937EA8;
     background-color: #937EA8;
@@ -75,6 +78,7 @@
     display: block;
     text-align: center;
     position: relative;
+    padding: 6px 0;
 }
 
 .btnChonLichChieu::after,

@@ -4,7 +4,7 @@ import DanhSachLichChieu from './DanhSachLichChieu';
 import { actFetchLichChieu } from './module/action';
 
 export default function LichChieuTheoHeThong(props) {
-    const { idCumRapChon, id, idHeThong } = props;
+    const { idCumRapChon, idHeThong } = props;
     const data = useSelector(state => state.listLichChieuTheoHeThongReducer.data)
     const dispatch = useDispatch()
 
@@ -15,7 +15,6 @@ export default function LichChieuTheoHeThong(props) {
     const renderLichChieu = () => {
         return data?.map((heThong) => {
             let indexCumRap = heThong.lstCumRap.findIndex(cumRap => cumRap.maCumRap === idCumRapChon)
-            // return console.log(heThong.lstCumRap[indexCumRap].maCumRap)
             return heThong.lstCumRap[indexCumRap]?.danhSachPhim.map((lichChieu, index) => {
                 return(
                     <div key={index} className="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby={idCumRapChon}>

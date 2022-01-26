@@ -6,7 +6,7 @@ import LichChieuTheoHeThong from './LichChieu';
 import { actFetchListCumRap } from '../../../../reducer/ModuleHeThongRapChieu/DanhSachCumRapChieu/action';
 
 export default function DanhSachCumRap(props) {
-    const { idHeThong, id } = props
+    const { idHeThong } = props
 
     const dataCumRap = useSelector(state => state.listCumRapReducer.dataCumRap)
     const loading = useSelector(state => state.listCumRapReducer.loading)
@@ -23,7 +23,6 @@ export default function DanhSachCumRap(props) {
                 <LichChieuTheoHeThong
                     idHeThong={idHeThong}
                     idCumRapChon={idCumRap}
-                    id={id}
                 />
             )
         }

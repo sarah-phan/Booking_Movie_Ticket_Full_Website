@@ -24,7 +24,6 @@ export default function MuaVeTheoPhim(props) {
             return (
                 <DanhSachCumRap
                 idHeThong = {idHeThong}
-                id = {id}
                 />
             )
         }
