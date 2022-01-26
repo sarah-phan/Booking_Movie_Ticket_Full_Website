@@ -10,6 +10,9 @@ import { loginReducer } from "../containers/HomeTemplate/LoginTheoPhim/Module/re
 import { loginTrangChuReducer } from "../containers/HomeTemplate/LoginTrangChu/module/reducer";
 import { dangKyTrangChuReducer } from "../containers/HomeTemplate/DangKyTrangChu/module/reducer";
 import { dangKyTheoPhimReducer } from "../containers/HomeTemplate/DangKyTheoPhim/module/reducer";
+import { listPhongVeReducer } from "../containers/HomeTemplate/DatCho/module/reducer";
+import { gheDangDatReducer } from "../containers/HomeTemplate/DatCho/HangGhe/module/reducer";
+import { DatVeReducer } from "../containers/HomeTemplate/DatCho/ThongTinPhim/module/reducer";
 
 export const rootReducer = combineReducers({
     listBannerReducer,
@@ -23,4 +26,7 @@ export const rootReducer = combineReducers({
     loginTrangChuReducer,
     dangKyTrangChuReducer,
     dangKyTheoPhimReducer,
+    listPhongVeReducer,
+    gheDangDatReducer,
+    DatVeReducer,
 })

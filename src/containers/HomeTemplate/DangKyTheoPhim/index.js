@@ -15,7 +15,7 @@ import "./style.css";
 import { actDangKyTheoPhim } from './module/action';
 
 export default function DangKyTheoPhim(props) {
-  const {id, idHeThong, idCumRap} = props.match.params
+  const {idLichChieu} = props.match.params
   const error = useSelector(state => state.dangKyTheoPhimReducer.error)
   const loading = useSelector(state => state.dangKyTheoPhimReducer.loading)
   const dispatch = useDispatch()
@@ -54,7 +54,7 @@ export default function DangKyTheoPhim(props) {
 
   const handleSignupTheoPhim = (event) => {
       event.preventDefault()
-      props.history.replace({id: id, idHeThong: idHeThong, idCumRap: idCumRap})
+      props.history.replace({idLichChieu: idLichChieu})
       dispatch(actDangKyTheoPhim(values, props.history))
   }
 

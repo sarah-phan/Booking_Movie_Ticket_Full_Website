@@ -4,9 +4,10 @@ import { useEffect } from 'react'
 import CarouselHome from "../_components/Carousel"
 import "./style.css"
 
-import ListPhim from './ListPhim'
 import Loading from '../../../components/loading'
 import {actFetchListPhim } from "./../../../reducer/ModuleListPhim/action";
+import ListPhimDangChieu from './ListPhimDangChieu'
+import ListPhimSapChieu from './ListPhimSapChieu'
 
 export default function PhimChieuRap() {
     const data = useSelector(state => state.listPhimReducer.data)
@@ -28,12 +29,10 @@ export default function PhimChieuRap() {
     }
 
     const renderPhimDangChieu = () => {
-        // console.log(123)
         return data?.map((phimDangChieu) => {
             if (phimDangChieu.dangChieu) {
-                // console.log(phimDangChieu.dangChieu)
                 return (
-                    <ListPhim
+                    <ListPhimDangChieu
                         key={phimDangChieu.maPhim}
                         phim={phimDangChieu}
                     />
@@ -43,12 +42,10 @@ export default function PhimChieuRap() {
         })
     }
     const renderPhimSapChieu = () => {
-        // console.log(456)
         return data?.map((phimSapChieu) => {
             if (phimSapChieu.sapChieu) {
-                // console.log(phimSapChieu.sapChieu)
                 return (
-                    <ListPhim
+                    <ListPhimSapChieu
                         key={phimSapChieu.maPhim}
                         phim={phimSapChieu}
                     />

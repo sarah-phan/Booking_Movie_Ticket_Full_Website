@@ -41,12 +41,12 @@ const routesHome = [
     // }
     {
         exact: false, 
-        path: "/dang-nhap/:id/:idHeThong/:idCumRap",
+        path: "/dang-nhap/:idLichChieu",
         component: lazy(() => import ("../containers/HomeTemplate/LoginTheoPhim"))
     },
     {
         exact: false, 
-        path: "/dat-cho/:id/:idHeThong/:idCumRap",
+        path: "/dat-cho/:idLichChieu",
         component: lazy(() => import ("../containers/HomeTemplate/DatCho"))
     },
     {
@@ -61,9 +61,9 @@ const routesHome = [
     }, 
     {
         exact: false, 
-        path: "/dang-ky-theo-phim/:id/:idHeThong/:idCumRap",
+        path: "/dang-ky-theo-phim/:idLichChieu",
         component: lazy(() => import ("../containers/HomeTemplate/DangKyTheoPhim"))
-    },     
+    }, 
 ];
 
 export const renderRoutesHome = () => {

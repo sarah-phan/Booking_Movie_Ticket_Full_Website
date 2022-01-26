@@ -2,9 +2,8 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import "../../TrangChu/style.css"
 
-export default function ListPhim(props) {
+export default function ListPhimSapChieu(props) {
     const {phim} = props
-    // console.log(phim)
     return (
         <div className='col-md-4' style={{marginTop: 40}}>
             <div className="card" style={{ width: '18rem', height: "100%"}}>
@@ -14,7 +13,6 @@ export default function ListPhim(props) {
                         {phim.tenPhim}
                         <NavLink to={`/chi-tiet-phim/${phim.maPhim}`} className='detailPhim'> ...Chi tiết</NavLink>
                     </h5>
-                    <NavLink to={`/mua-ve-theo-phim/${phim.maPhim}`} className='muaVe'>Mua vé</NavLink>
                 </div>
             </div>
         </div>

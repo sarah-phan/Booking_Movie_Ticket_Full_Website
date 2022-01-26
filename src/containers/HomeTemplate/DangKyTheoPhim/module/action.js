@@ -2,7 +2,7 @@ import * as ActionType from "./constants"
 import { api } from "../../../../utils/apiUtils"
 
 export const actDangKyTheoPhim = (user, history) => {
-    const{id, idHeThong, idCumRap} = history.location
+    const{idLichChieu} = history.location
     return (dispatch) => {
         dispatch(actDangKyTheoPhimRequest)
         api
@@ -10,7 +10,7 @@ export const actDangKyTheoPhim = (user, history) => {
         .then((result) => {
             dispatch(actDangKyTheoPhimSuccess(result.data.content))
             alert("Đăng ký tài khoản thành công")
-            history.replace(`/dang-nhap/${id}/${idHeThong}/${idCumRap}`)
+            history.replace(`/dang-nhap/${idLichChieu}`)
         })
         .catch((error) => {
             dispatch(actDangKyTheoPhimFailed(error))

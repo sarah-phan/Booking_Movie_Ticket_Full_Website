@@ -16,19 +16,17 @@ export default function LichChieuTheoPhim(props) {
         dispatch(actFetchDetailMovie(id))
     }, [])
 
-    const checkIsLogin = () => {
-        // to={`/dang-nhap/${id}/${idHeThong}/${idCumRapChon}`}
-        console.log(JSON.parse(localStorage.getItem("UserAccount")))
+    const checkIsLogin = (maLichChieu) => {
         if (JSON.parse(localStorage.getItem("UserAccount")) === null) {
             return (
-                <NavLink to={`/dang-nhap/${id}/${idHeThong}/${idCumRapChon}`} className='btnChonLichChieu'>
+                <NavLink to={`/dang-nhap/${maLichChieu}`} className='btnChonLichChieu'>
                     Chọn
                 </NavLink>
             )
         }
         if (JSON.parse(localStorage.getItem("UserAccount")) !== null) {
             return (
-                <NavLink to={`/dat-cho/${id}/${idHeThong}/${idCumRapChon}`} className='btnChonLichChieu'>
+                <NavLink to={`/dat-cho/${maLichChieu}`} className='btnChonLichChieu'>
                     Chọn
                 </NavLink>
             )
@@ -53,7 +51,7 @@ export default function LichChieuTheoPhim(props) {
                                 <NumberFormat value={lichChieu.giaVe} suffix='VND' thousandSeparator={true} displayType='text' />
                             </div>
                             <div className='col-3'>
-                                {checkIsLogin()}
+                                {checkIsLogin(lichChieu.maLichChieu)}
                             </div>
                         </div>
                     )

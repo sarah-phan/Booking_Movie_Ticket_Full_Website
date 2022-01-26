@@ -9,7 +9,7 @@ export const actDangKyTrangChu = (user, history) => {
         .then((result) => {
             dispatch(actDangKyTrangChuSuccess(result.data.content))
             alert("Đăng ký thành công")
-            history.replace("/")
+            history.replace("/dang-nhap")
         })
         .catch((error) => {
             dispatch(actDangKyTrangChuFailed(error))

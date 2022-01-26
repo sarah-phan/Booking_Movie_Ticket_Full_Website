@@ -18,7 +18,7 @@ import { actLogin } from "./Module/action"
 import Loading from "./../../../components/loading"
 
 export default function LoginTheoPhim(props) {
-    const { id, idHeThong, idCumRap } = props.match.params
+    const {idLichChieu} = props.match.params
     const error = useSelector(state => state.loginReducer.error)
     const loading = useSelector(state => state.loginReducer.loading)
     const dispatch = useDispatch()
@@ -55,7 +55,7 @@ export default function LoginTheoPhim(props) {
 
     const handleLogin = (event) => {
         event.preventDefault()
-        props.history.replace({ id: id, idHeThong: idHeThong, idCumRap: idCumRap });
+        props.history.replace({ idLichChieu: idLichChieu });
         dispatch(actLogin(values, props.history))
     }
 
@@ -113,7 +113,7 @@ export default function LoginTheoPhim(props) {
                     </form>
                     <p className='dangKy'>
                         Chưa có tài khoản? 
-                        <NavLink to = {`/dang-ky-theo-phim/${id}/${idHeThong}/${idCumRap}`} className = "signupLink"> Đăng Ký</NavLink>
+                        <NavLink to = {`/dang-ky-theo-phim/${idLichChieu}`} className = "signupLink"> Đăng Ký</NavLink>
                     </p>
                 </div>
             </div>

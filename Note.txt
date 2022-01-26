@@ -22,3 +22,5 @@ Mã màu sử dụng:
 "matKhau": "123456789",
 "maLoaiNguoiDung": "KhachHang"
 
+http://localhost:3000/dat-cho/8225/BHDStar/bhd-star-cineplex-3-2
+

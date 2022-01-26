@@ -2,7 +2,7 @@ import * as ActionType from "./constants";
 import { api } from "./../../../../utils/apiUtils";
 
 export const actLogin = (user, history) => {
-    const {id, idHeThong, idCumRap} = history.location
+    const {idLichChieu} = history.location
     return(dispatch) => {
         dispatch(actLoginRequest)
         api
@@ -18,7 +18,7 @@ export const actLogin = (user, history) => {
                 })
             }
             localStorage.setItem("UserAccount", JSON.stringify(result.data.content));
-            history.replace(`/dat-cho/${id}/${idHeThong}/${idCumRap}`)
+            history.replace(`/dat-cho/${idLichChieu}`)
             dispatch(actLoginSuccess(result.data.content))
         })
         .catch((error) => {
