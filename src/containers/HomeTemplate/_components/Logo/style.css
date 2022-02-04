@@ -5,7 +5,7 @@
 }
 .logo{
     display: flex;
-    width: 100%
+    width: 90%
 }
 .logoImage{
     width: 12%;
@@ -39,4 +39,12 @@
 .login a:hover{
     color: #57E0BD;
     text-decoration: none;
+}
+.buttonLogout{
+    border: none;
+    background-color: transparent;
+    color: white; 
+    font-weight: 700;
+    border-radius: 10px; 
+    font-size: 17px;
 }

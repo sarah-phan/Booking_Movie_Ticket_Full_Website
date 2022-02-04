@@ -2,15 +2,11 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import NumberFormat from 'react-number-format';
 import { huyGheAction } from '../HangGhe/module/action';
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 
 import { actPostDatVe } from "./module/action"
 export default function ThongTinPhim(props) {
     const { data, idLichChieu } = props
     const danhSachGheDangDat = useSelector(state => state.gheDangDatReducer.danhSachGheDangDat)
-    const success = useSelector(state => state.DatVeReducer.success)
     const dataDatVe = useSelector(state => state.DatVeReducer.data)
     const dispatch = useDispatch()
 
@@ -86,6 +82,10 @@ export default function ThongTinPhim(props) {
 
     }
 
+    function refreshPage() {
+        window.location.reload(false);
+    }
+
     return (
         <div className='thongTinPhim'>
             <div className='tenPhim'>
@@ -152,7 +152,12 @@ export default function ThongTinPhim(props) {
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                <button onClick={() => {
+                                    refreshPage()
+                                }} 
+                                className="close" 
+                                data-dismiss="modal" 
+                                aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
