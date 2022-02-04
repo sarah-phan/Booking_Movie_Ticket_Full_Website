@@ -5,7 +5,7 @@ export const actPostDatVe = (datVe) => {
     return (dispatch) => {
         dispatch(actXacNhanRequest())
         api
-        .post("QuanLyDatVe/DatVe",  datVe) // này nãy e nhầm 
+        .post("QuanLyDatVe/DatVe",  datVe)
         .then((result) => {
             dispatch(actXacNhanSuccess(result.data.content))
             console.log(result.data.content)

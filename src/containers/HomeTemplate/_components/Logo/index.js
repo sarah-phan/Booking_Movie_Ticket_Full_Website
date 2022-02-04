@@ -3,6 +3,11 @@ import { NavLink } from 'react-router-dom/cjs/react-router-dom.min'
 import "./style.css"
 
 export default function Logo() {
+    const logout = () => {
+        localStorage.clear();
+        window.location.href = '/';
+    }
+
     const checkLogin = () => {
         if (JSON.parse(localStorage.getItem("UserAccount")) === null) {
             return (
@@ -12,9 +17,25 @@ export default function Logo() {
                 </>
             )
         }
-        else{
-            return(
-                <p style={{color: "white"}}>Chào, <span>{JSON.parse(localStorage.getItem("UserAccount")).taiKhoan}</span></p>
+        else {
+            return (
+                <>
+                
+                <p style={{paddingRight: 6, color: "white", display: "inline"}}>Chào, <span>{JSON.parse(localStorage.getItem("UserAccount")).taiKhoan}</span></p>
+                <button className='buttonLogout' onClick={() => {
+                        logout()
+                    }}>
+                        Logout
+                    </button>
+                </>
+                // <div className='row'>
+                //     <div className='col-6'>
+                        
+                //     </div>
+                //     <div className='col-6'>
+                    
+                //     </div>
+                // </div>
             )
         }
     }
