@@ -3,11 +3,8 @@ import { NavLink } from "react-router-dom";
 
 export default function NavbarAdmin() {
   return (
-    <nav className="navbar navbar-expand-md bg-dark navbar-dark">
+    <nav className="navbar navbar-expand-md  navbar-dark">
       {/* Brand */}
-      <div className="navbar-brand" to="#">
-        Navbar
-      </div>
       {/* Toggler/collapsibe Button */}
       <button
         className="navbar-toggler"
@@ -19,24 +16,24 @@ export default function NavbarAdmin() {
       </button>
       {/* Navbar links */}
       <div className="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul className="navbar-nav">
+        <ul className="navbar">
           <li className="nav-item">
             <NavLink
               exact
               activeClassName="active"
               className="nav-link"
-              to="/dashboard"
+              to="/admin/films"
             >
-              Dashboard
+              Films
             </NavLink>
           </li>
           <li className="nav-item">
             <NavLink
               activeClassName="active"
               className="nav-link"
-              to="/add-user"
+              to="/admin/users"
             >
-              ADDUSER
+              Users
             </NavLink>
           </li>
         </ul>

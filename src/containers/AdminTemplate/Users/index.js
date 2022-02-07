@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Users() {
+export default function UsersAdmin() {
   return (
     <div>
       <h3>Users</h3>

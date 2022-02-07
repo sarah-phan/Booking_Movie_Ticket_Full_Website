@@ -43,19 +43,33 @@ const routesHome = [
 ];
 
 const routesAdmin = [
-  //Dashboard
+  //Admin
   {
     exact: false,
-    path: "/dashboard",
+    path: "/admin",
     // component: Dashboard,
-    component: lazy(() => import("../containers/AdminTemplate/DashboardPage")),
+    component: lazy(() => import("../containers/AdminTemplate/AdminPage")),
   },
-  //AddUserPage
+  // //User
+  // {
+  //   exact: false,
+  //   path: "/admin/users",
+  //   // component: Users
+  //   component: lazy(() => import("../containers/AdminTemplate/Users")),
+  // },
+  // {
+  //   exact: false,
+  //   path: "/admin/films",
+  //   // component: AddUserPage,
+  //   component: lazy(() => import("../containers/AdminTemplate/Films")),
+  // },
   {
-    exact: false,
-    path: "/add-user",
+    exact: true,
+    path: "/admin/films/addnew",
     // component: AddUserPage,
-    component: lazy(() => import("../containers/AdminTemplate/Users")),
+    component: lazy(() =>
+      import("../containers/AdminTemplate/Films/AddNew/AddNew.js")
+    ),
   },
 ];
 const renderRoutesHome = () => {
