@@ -40,6 +40,31 @@ const routesHome = [
   //     path: "/mua-ve-theo-phim/:id/danh-sach-cum-rap/:idHeThong",
   //     component: lazy(() => import ("../containers/HomeTemplate/MuaVeTheoPhim"))
   // }
+  {
+    exact: false,
+    path: "/dang-nhap/:idLichChieu",
+    component: lazy(() => import("../containers/HomeTemplate/LoginTheoPhim")),
+  },
+  {
+    exact: false,
+    path: "/dat-cho/:idLichChieu",
+    component: lazy(() => import("../containers/HomeTemplate/DatCho")),
+  },
+  {
+    exact: false,
+    path: "/dang-nhap",
+    component: lazy(() => import("../containers/HomeTemplate/LoginTrangChu")),
+  },
+  {
+    exact: false,
+    path: "/dang-ky",
+    component: lazy(() => import("../containers/HomeTemplate/DangKyTrangChu")),
+  },
+  {
+    exact: false,
+    path: "/dang-ky-theo-phim/:idLichChieu",
+    component: lazy(() => import("../containers/HomeTemplate/DangKyTheoPhim")),
+  },
 ];
 
 const routesAdmin = [

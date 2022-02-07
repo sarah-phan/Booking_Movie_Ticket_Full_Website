@@ -1,0 +1,75 @@
+.loginBox{
+    background-color: #f6f6e9;
+    padding: 10px 0;
+    margin: 50px auto;
+}
+.loginBox h2{
+    text-align: center;
+    color: #7b3911;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+.textField{
+    margin: 0 auto;
+    display: block !important;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 20px;
+}
+.dangNhapButton{
+    border: 1px solid #937EA8;
+    background-color: #937EA8;
+    color: white;
+    padding: 10px  15px;
+    margin: 25px auto 10px;
+    display: block;
+    width: 32%;
+    text-align: center;
+    position: relative;
+}
+.dangNhapButton::after,
+.dangNhapButton::before {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    transition: .5s;
+}
+
+.dangNhapButton::after {
+    top: -3px;
+    left: -3px;
+    border-top: 3px solid transparent;
+    border-left: 3px solid transparent;
+}
+
+.dangNhapButton::before {
+    bottom: -3px;
+    right: -3px;
+    border-bottom: 3px solid transparent;
+    border-right: 3px solid transparent;
+}
+
+.dangNhapButton:hover {
+    background-color: #f6f6e9;
+    border: 1px solid black;
+    color: #222222;
+    font-weight: 700;
+}
+
+.dangNhapButton:hover::after,
+.dangNhapButton:hover::before {
+    width: calc(50% + 3px);
+    height: calc(50% + 3px);
+    border-color: #222222;
+}
+.dangKy{
+    margin-top: 20px;
+    margin-left: 23%;
+    font-size: 15px;
+}
+.dangKyNav{
+    font-weight: 800;
+    font-size: 20px;
+}

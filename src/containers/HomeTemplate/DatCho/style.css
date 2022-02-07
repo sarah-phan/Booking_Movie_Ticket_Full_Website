@@ -1,0 +1,155 @@
+.choNgoi{
+    background-color: #f6f6e9;
+    margin-top: 50px;
+}
+.screen{
+    border-bottom: 50px solid black;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    height: 100;
+    width:80%;
+    filter: drop-shadow(4px 30px 20px rgba(53, 51, 51, 0.5));
+    font-size: 25px;
+    color: #fff;
+    position: relative;
+    margin-top: 50px;
+}
+.text{
+    position: absolute;
+    left: 40%;
+    top: 10px;
+}
+.gheChuaDatVIP{
+    background-color: #ffa494bd;
+    border: 1px solid black;
+}
+.gheChuaDatThuong{
+    background-color: #209b74b0;
+    border: 1px solid black;
+}
+.gheDaDat{
+    background-color: gainsboro;
+    border: 1px solid black;
+}
+.gheDangDat{
+    background-color: #aa1e2a;
+    border: 1px solid black;
+    color: white
+}
+.GheXemPhim button{
+    width: 55px;
+    height: 55px;
+    margin: 5px 0;
+}
+.GheXemPhim{
+    margin-top: 50px;
+    margin-left: 85px;
+    margin-right: 85px;
+}
+.gheVipChuThich{
+    background-color: #ffa494bd;
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+}
+.gheThuongChuThich{
+    background-color: #209b74b0;
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+}
+.gheDaDatChuThich{
+    background-color: gainsboro;
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+}
+.gheDangDatChuThich{
+    background-color: #aa1e2a;
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+}
+.chuThichGhe{
+    margin-top: 27px;
+    margin-left: 13px;
+}
+.chuThich{
+    margin-left: 20%;
+    padding-bottom: 25px;
+    color: #7b3911;
+}
+.thongTinPhim{
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 30px;
+    color: black;
+    padding: 35px;
+}
+.thongTinPhim h4{
+    font-weight: 700;
+}
+.col-6 p{
+    font-weight: 700;
+    margin-bottom: 0;
+    margin-top: 20px;
+    color: black
+}
+.buttonHuy{
+    margin-top: 2px;
+    padding: 3px 15px;
+}
+.submitLink{
+    border: 1px solid #937EA8;
+    background-color: #937EA8;
+    color: white;
+    padding: 10px  15px;
+    margin: 50px auto 10px;
+    display: block;
+    width: 32%;
+    text-align: center;
+    position: relative;
+}
+.submitLink::after,
+.submitLink::before {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    transition: .5s;
+}
+
+.submitLink::after {
+    top: -3px;
+    left: -3px;
+    border-top: 3px solid transparent;
+    border-left: 3px solid transparent;
+}
+
+.submitLink::before {
+    bottom: -3px;
+    right: -3px;
+    border-bottom: 3px solid transparent;
+    border-right: 3px solid transparent;
+}
+
+.submitLink:hover {
+    background-color: white;
+    border: 1px solid black;
+    color: #222222;
+    font-weight: 700;
+}
+
+.submitLink:hover::after,
+.submitLink:hover::before {
+    width: calc(50% + 3px);
+    height: calc(50% + 3px);
+    border-color: #222222;
+}
+.submitLink{
+    font-size: 30px;
+}
