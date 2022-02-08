@@ -96,6 +96,14 @@ const routesAdmin = [
       import("../containers/AdminTemplate/Films/AddNew/AddNew.js")
     ),
   },
+  {
+    exact: true,
+    path: "/admin/films/editfilm/:id",
+    // component: AddUserPage,
+    component: lazy(() =>
+      import("../containers/AdminTemplate/Films/EditFilm/EditFilm.js")
+    ),
+  },
 ];
 const renderRoutesHome = () => {
   return routesHome?.map((route, index) => {

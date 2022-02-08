@@ -92,11 +92,15 @@ export default function FilmsAdmin() {
       dataIndex: "hanhDong",
       render: (text, film, index) => {
         return (
-          <Fragment key={index}>
-            <NavLink className="mr-2 text-2xl" to="/">
+          <Fragment>
+            <NavLink
+              key={1}
+              className="mr-2 text-2xl"
+              to={`/admin/films/editfilm/${film.maPhim}`}
+            >
               <EditOutlined style={{ color: "blue" }} />
             </NavLink>
-            <NavLink className="mr-2 text-2xl" to="/">
+            <NavLink key={2} className="mr-2 text-2xl" to="/">
               <DeleteOutlined style={{ color: "red" }} />
             </NavLink>
           </Fragment>

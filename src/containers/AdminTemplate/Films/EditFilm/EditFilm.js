@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useFormik } from "formik";
 import {
   Form,
   Input,
@@ -11,27 +13,40 @@ import {
   TreeSelect,
   Switch,
 } from "antd";
-import { useDispatch } from "react-redux";
-import { useFormik } from "formik";
 import moment from "moment";
-import { actAddFilm } from "./module/action";
+// import { actAddFilm } from "./module/action";
 
-const AddNew = () => {
+import { actFetchDetailMovie } from "../../../HomeTemplate/DetailPhim/module/action.js";
+
+const EdiFilm = (props) => {
+  const { data } = useSelector((state) => state.detailMovieReducer);
+  console.log("data", data);
+  const loading = useSelector((state) => state.detailMovieReducer.loading);
   const [componentSize, setComponentSize] = useState("default");
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    let { id } = props.match.params;
+    dispatch(actFetchDetailMovie(id));
+  }, []);
+
+  // const value = data?.tenPhim || "";
+  // console.log(value);
+
   const [imgSrc, setImgSrc] = useState("");
 
   const formik = useFormik({
+    enableReinitialize: true,
     initialValues: {
-      tenPhim: "",
-      trailer: "",
-      mota: "",
-      ngayKhoiChieu: "",
-      dangChieu: false,
-      sapChieu: false,
-      hot: false,
-      danhGia: 0,
-      hinhAnh: {},
+      tenPhim: data?.tenPhim,
+      trailer: data?.trailer,
+      moTa: data?.moTa,
+      ngayKhoiChieu: data?.ngayKhoiChieu,
+      dangChieu: data?.dangChieu,
+      sapChieu: data?.sapChieu,
+      hot: data?.hot,
+      danhGia: data?.danhGia,
+      hinhAnh: null,
       maNhom: "GP01",
     },
     onSubmit: (values) => {
@@ -48,7 +63,7 @@ const AddNew = () => {
         }
       }
       //Gọi api gửi các giá trị formdata về backend xử lý
-      dispatch(actAddFilm(formData));
+      // dispatch(actAddFilm(formData));
     },
   });
 
@@ -121,29 +136,54 @@ const AddNew = () => {
         </Radio.Group>
       </Form.Item>
       <Form.Item label="Tên Phim">
-        <Input name="tenPhim" onChange={formik.handleChange} />
+        <Input
+          name="tenPhim"
+          onChange={formik.handleChange}
+          value={formik.values.tenPhim}
+        />
       </Form.Item>
       <Form.Item label="Trailer">
-        <Input name="trailer" onChange={formik.handleChange} />
+        <Input
+          name="trailer"
+          onChange={formik.handleChange}
+          value={formik.values.trailer}
+        />
       </Form.Item>
       <Form.Item label="Mô Tả">
-        <Input name="moTa" onChange={formik.handleChange} />
+        <Input
+          name="moTa"
+          onChange={formik.handleChange}
+          value={formik.values.moTa}
+        />
       </Form.Item>
       <Form.Item label="Ngày Khởi Chiếu">
         <DatePicker
           name="ngayKhoiChieu"
           format={"DD/MM/YYYY"}
           onChange={handleChangeDatePicker}
+          value={moment(formik.values.ngayKhoiChieu)}
         />
       </Form.Item>
       <Form.Item label="Đang Chiếu">
-        <Switch name="dangChieu" onChange={handleChangeSwitch("dangChieu")} />
+        <Switch
+          name="dangChieu"
+          onChange={handleChangeSwitch("dangChieu")}
+          checked={formik.values.dangChieu}
+        />
       </Form.Item>
       <Form.Item label="Sắp Chiếu">
-        <Switch name="sapChieu" onChange={handleChangeSwitch("sapChieu")} />
+        <Switch
+          name="sapChieu"
+          onChange={handleChangeSwitch("sapChieu")}
+          checked={formik.values.sapChieu}
+        />
       </Form.Item>
       <Form.Item label="Hot">
-        <Switch name="hot" onChange={handleChangeSwitch("hot")} />
+        <Switch
+          name="hot"
+          onChange={handleChangeSwitch("hot")}
+          checked={formik.values.hot}
+        />
       </Form.Item>
 
       <Form.Item label="Số Sao">
@@ -151,12 +191,17 @@ const AddNew = () => {
           onChange={handleChangeInputNumber("danhGia")}
           min={1}
           max={10}
+          value={formik.values.danhGia}
         />
       </Form.Item>
       <Form.Item label="Hình Ảnh">
-        <input type="file" onChange={handleChangeFile} />
+        <input
+          type="file"
+          onChange={handleChangeFile}
+          // accept="image/png, image/jpeg,image/gif,image/png"
+        />
         <br />
-        <img style={{ width: 150, height: 150 }} src={imgSrc} alt="..." />
+        <img width={100} height={100} src={imgSrc} />
       </Form.Item>
 
       <Form.Item label="Tác vụ">
@@ -167,4 +212,4 @@ const AddNew = () => {
     </Form>
   );
 };
-export default AddNew;
+export default EdiFilm;

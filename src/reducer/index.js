@@ -14,19 +14,25 @@ import { listPhongVeReducer } from "../containers/HomeTemplate/DatCho/module/red
 import { gheDangDatReducer } from "../containers/HomeTemplate/DatCho/HangGhe/module/reducer";
 import { DatVeReducer } from "../containers/HomeTemplate/DatCho/ThongTinPhim/module/reducer";
 
+//page admin
+import addFilmReducer from "../containers/AdminTemplate/Films/AddNew/module/reducer";
+
 export const rootReducer = combineReducers({
-    listBannerReducer,
-    listPhimReducer,
-    detailMovieReducer,
-    listHeThongRapReducer,
-    listCumRapReducer,
-    listLichChieuReducer,
-    listLichChieuTheoHeThongReducer,
-    loginReducer,
-    loginTrangChuReducer,
-    dangKyTrangChuReducer,
-    dangKyTheoPhimReducer,
-    listPhongVeReducer,
-    gheDangDatReducer,
-    DatVeReducer,
-})
+  listBannerReducer,
+  listPhimReducer,
+  detailMovieReducer,
+  listHeThongRapReducer,
+  listCumRapReducer,
+  listLichChieuReducer,
+  listLichChieuTheoHeThongReducer,
+  loginReducer,
+  loginTrangChuReducer,
+  dangKyTrangChuReducer,
+  dangKyTheoPhimReducer,
+  listPhongVeReducer,
+  gheDangDatReducer,
+  DatVeReducer,
+  //page admin
+
+  addFilmReducer,
+});

@@ -15,6 +15,7 @@ import FilmsAdmin from "../Films";
 import UsersAdmin from "../Users";
 import AddNew from "../Films/AddNew/AddNew";
 import SubMenu from "antd/lib/menu/SubMenu";
+import EditFilm from "../Films/EditFilm/EditFilm";
 
 const { Header, Sider, Content } = Layout;
 
@@ -103,6 +104,12 @@ class SiderDemo extends React.Component {
                   path="/admin/films/addnew"
                   // render={() => <div>Mlem admin showtimes</div>} // nếu anh muốn dùng component thì:
                   component={AddNew}
+                />
+                <Route
+                  exact={true}
+                  path="/admin/films/editfilm/:id"
+                  // render={() => <div>Mlem admin showtimes</div>} // nếu anh muốn dùng component thì:
+                  component={EditFilm}
                 />
               </div>
             </Content>
