@@ -1,33 +1,38 @@
 import * as ActionType from "./constants";
-import { api } from "../../../../utils/apiUtils";
+import axios from "axios";
+import { api } from "../../../../../utils/apiUtils";
 
-export const actEditDetailMovie = (id) => {
+export const actUpdateFilm = (formData, history) => {
   return (dispatch) => {
-    dispatch(actEditMovieRequest());
+    dispatch(actUpdateFilmRequest());
     api
-      .get(`QuanLyPhim/LayThongTinPhim?MaPhim=${id}`)
+      .post("/QuanLyPhim/CapNhatPhimUpload", formData)
       .then((result) => {
-        dispatch(actEditMovieSuccess(result.data.content));
+        dispatch(actUpdateFilmSuccess(result.data.content));
+        alert("Cập Nhật Film thành công");
+        // console.log({ history });
+        history.replace("/admin/films");
       })
       .catch((error) => {
-        dispatch(actEditMovieFailed(error));
+        dispatch(actUpdateFilmFailed(error));
       });
   };
 };
-const actEditMovieRequest = () => {
+
+const actUpdateFilmRequest = () => {
   return {
-    type: ActionType.EDIT_MOVIE_REQUEST,
+    type: ActionType.UPDATE_FILM_REQUEST,
   };
 };
-const actEditMovieSuccess = (data) => {
+const actUpdateFilmSuccess = (data) => {
   return {
-    type: ActionType.EDIT_MOVIE_SUCCESS,
+    type: ActionType.UPDATE_FILM_SUCCESS,
     payload: data,
   };
 };
-const actEditMovieFailed = (error) => {
+const actUpdateFilmFailed = (error) => {
   return {
-    type: ActionType.EDIT_MOVIE_FAILED,
+    type: ActionType.UPDATE_FILM__FAILED,
     payload: error,
   };
 };

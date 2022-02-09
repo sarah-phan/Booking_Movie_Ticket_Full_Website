@@ -17,10 +17,11 @@ import moment from "moment";
 // import { actAddFilm } from "./module/action";
 
 import { actFetchDetailMovie } from "../../../HomeTemplate/DetailPhim/module/action.js";
+import { actUpdateFilm } from "./module/action.js";
 
 const EdiFilm = (props) => {
   const { data } = useSelector((state) => state.detailMovieReducer);
-  console.log("data", data);
+  // console.log("data", data);
   const loading = useSelector((state) => state.detailMovieReducer.loading);
   const [componentSize, setComponentSize] = useState("default");
   const dispatch = useDispatch();
@@ -30,6 +31,9 @@ const EdiFilm = (props) => {
     dispatch(actFetchDetailMovie(id));
   }, []);
 
+  useEffect(() => {
+    setImgSrc(data?.hinhAnh);
+  }, [data?.hinhAnh]);
   // const value = data?.tenPhim || "";
   // console.log(value);
 
@@ -38,6 +42,7 @@ const EdiFilm = (props) => {
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
+      maPhim: data?.maPhim,
       tenPhim: data?.tenPhim,
       trailer: data?.trailer,
       moTa: data?.moTa,
@@ -50,27 +55,41 @@ const EdiFilm = (props) => {
       maNhom: "GP01",
     },
     onSubmit: (values) => {
-      console.log("values", values);
       //Tạo đối tượng formdata => Đưa giá trị values từ formik vào formdata
       let formData = new FormData();
+      let ngayKhoiChieu = new Date(values.ngayKhoiChieu);
+      let dd = ngayKhoiChieu.getDate(),
+        mm = ngayKhoiChieu.getMonth() + 1,
+        yyyy = ngayKhoiChieu.getFullYear();
+      if (dd < 10) dd = "0" + dd; // 8 => 08
+      if (mm < 10) mm = "0" + mm;
+      ngayKhoiChieu = `${dd}/${mm}/${yyyy}`;
+
       // formData.append("tenPhim", formik.values.tenPhim);
       // console.log("formik", formData);
       for (let key in values) {
-        if (key !== "hinhAnh") {
+        // console.log(key === "ngayKhoiChieu");
+        if (key === "ngayKhoiChieu") {
+          // console.log(123123);
+          formData.append(key, ngayKhoiChieu);
+        } else if (key !== "hinhAnh") {
           formData.append(key, values[key]);
         } else {
-          formData.append("File", values.hinhAnh, values.hinhAnh.name);
+          if (values.hinhAnh !== null) {
+            formData.append("File", values.hinhAnh, values.hinhAnh.name);
+          }
         }
       }
-      //Gọi api gửi các giá trị formdata về backend xử lý
-      // dispatch(actAddFilm(formData));
+      // cap nhat film
+      dispatch(actUpdateFilm(formData, props.history));
+      // console.log("values", formData.get("ngayKhoiChieu"));
     },
   });
 
   const handleChangeDatePicker = (value) => {
-    console.log("DatePicker", moment(value).format("DD/MM/YYYY"));
+    // console.log("DatePicker", moment(value).format("DD/MM/YYYY"));
 
-    let ngayKhoiChieu = moment(value).format("DD/MM/YYYY");
+    let ngayKhoiChieu = moment(value);
     formik.setFieldValue("ngayKhoiChieu", ngayKhoiChieu);
   };
 
@@ -95,6 +114,8 @@ const EdiFilm = (props) => {
       file.type === "image/gif" ||
       file.type === "image/png"
     ) {
+      // dem du lieu file luu vao formik
+      formik.setFieldValue("hinhAnh", file);
       //tao doi tuong de doc file
       let reader = new FileReader();
       reader.readAsDataURL(file);
@@ -103,7 +124,7 @@ const EdiFilm = (props) => {
         setImgSrc(e.target.result); // hinh base 64
       };
       // dem du lieu file luu vao formik
-      formik.setFieldValue("hinhAnh", file);
+      // formik.setFieldValue("hinhAnh", file);
     }
   };
 
@@ -159,8 +180,8 @@ const EdiFilm = (props) => {
       <Form.Item label="Ngày Khởi Chiếu">
         <DatePicker
           name="ngayKhoiChieu"
-          format={"DD/MM/YYYY"}
           onChange={handleChangeDatePicker}
+          format="DD/MM/YYYY"
           value={moment(formik.values.ngayKhoiChieu)}
         />
       </Form.Item>
@@ -198,15 +219,19 @@ const EdiFilm = (props) => {
         <input
           type="file"
           onChange={handleChangeFile}
-          // accept="image/png, image/jpeg,image/gif,image/png"
+          accept="image/png, image/jpeg,image/gif,image/png"
         />
         <br />
-        <img width={100} height={100} src={imgSrc} />
+        <img
+          width={100}
+          height={100}
+          src={imgSrc === "" ? data?.hinhAnh : imgSrc}
+        />
       </Form.Item>
 
       <Form.Item label="Tác vụ">
         <button type="submit" className="bg-blue-300 text-black p-2">
-          Thêm
+          Cập Nhật
         </button>
       </Form.Item>
     </Form>

@@ -16,7 +16,7 @@ import { DatVeReducer } from "../containers/HomeTemplate/DatCho/ThongTinPhim/mod
 
 //page admin
 import addFilmReducer from "../containers/AdminTemplate/Films/AddNew/module/reducer";
-
+import updateFilmReducer from "../containers/AdminTemplate/Films/AddNew/module/reducer";
 export const rootReducer = combineReducers({
   listBannerReducer,
   listPhimReducer,
@@ -35,4 +35,5 @@ export const rootReducer = combineReducers({
   //page admin
 
   addFilmReducer,
+  updateFilmReducer,
 });

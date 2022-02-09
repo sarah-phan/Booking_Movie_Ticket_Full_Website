@@ -89,7 +89,7 @@ export default function FilmsAdmin() {
     },
     {
       title: "Hành Động ",
-      dataIndex: "hanhDong",
+      dataIndex: "maPhim",
       render: (text, film, index) => {
         return (
           <Fragment>
@@ -127,7 +127,12 @@ export default function FilmsAdmin() {
         <NavLink to="/admin/films/addnew">Thêm Phim</NavLink>
       </Button>
       <Search placeholder="Tên Phim" size="large" onSearch={onSearch} />
-      <Table columns={columns} dataSource={data} onChange={onChange} />
+      <Table
+        columns={columns}
+        dataSource={data}
+        onChange={onChange}
+        rowKey={"maPhim"}
+      />
     </div>
   );
 }
