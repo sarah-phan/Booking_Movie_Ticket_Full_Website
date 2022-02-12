@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import { renderRoutesHome } from "./routes";
 import { renderRoutesAdmin } from "./routes";
 import PageNotFound from "./containers/PageNotFound";
+import AuthPage from "./containers/AdminTemplate/AuthPage";
 import Loading from "./components/loading";
 
 export const history = createBrowserHistory();
@@ -17,6 +18,7 @@ function App() {
         <Switch>
           {renderRoutesHome()}
           {renderRoutesAdmin()}
+          <Route path="/auth" component={AuthPage} />
           <Route path="" component={PageNotFound} />
         </Switch>
       </BrowserRouter>

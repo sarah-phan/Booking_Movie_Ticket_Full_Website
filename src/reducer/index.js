@@ -17,6 +17,12 @@ import { DatVeReducer } from "../containers/HomeTemplate/DatCho/ThongTinPhim/mod
 //page admin
 import addFilmReducer from "../containers/AdminTemplate/Films/AddNew/module/reducer";
 import updateFilmReducer from "../containers/AdminTemplate/Films/AddNew/module/reducer";
+import { deleteMovieReducer } from "../containers/AdminTemplate/Films/module/reducer";
+import { searchPhimReducer } from "../containers/AdminTemplate/Films/moduleSearchFilm/reducer";
+
+import { addLichChieuReducer } from "../containers/AdminTemplate/ShowTime/module/reducer";
+import authReducer from "../containers/AdminTemplate/AuthPage/module/reducer";
+
 export const rootReducer = combineReducers({
   listBannerReducer,
   listPhimReducer,
@@ -32,8 +38,16 @@ export const rootReducer = combineReducers({
   listPhongVeReducer,
   gheDangDatReducer,
   DatVeReducer,
+
   //page admin
 
   addFilmReducer,
   updateFilmReducer,
+  deleteMovieReducer,
+  searchPhimReducer,
+
+  addLichChieuReducer,
+
+  // Auth PAge
+  authReducer,
 });

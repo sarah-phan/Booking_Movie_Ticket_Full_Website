@@ -104,6 +104,12 @@ const routesAdmin = [
       import("../containers/AdminTemplate/Films/EditFilm/EditFilm.js")
     ),
   },
+  {
+    exact: true,
+    path: "/admin/films/showtime/:id",
+    // component: AddUserPage,
+    component: lazy(() => import("../containers/AdminTemplate/ShowTime")),
+  },
 ];
 const renderRoutesHome = () => {
   return routesHome?.map((route, index) => {

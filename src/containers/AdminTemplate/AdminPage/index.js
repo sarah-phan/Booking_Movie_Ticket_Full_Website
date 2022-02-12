@@ -50,7 +50,7 @@ class SiderDemo extends React.Component {
               </SubMenu>
 
               <Menu.Item key="3" icon={<UploadOutlined />}>
-                <NavLink to="/admin/showtimes">Showtime</NavLink>
+                <NavLink to="/admin/showtime/">Showtime</NavLink>
               </Menu.Item>
             </Menu>
           </Sider>
@@ -95,7 +95,7 @@ class SiderDemo extends React.Component {
                 />
                 <Route
                   exact={true}
-                  path="/admin/showtimes"
+                  path="/admin/showtime"
                   // render={() => <div>Mlem admin showtimes</div>} // nếu anh muốn dùng component thì:
                   component={ShowTimeAdmin}
                 />
@@ -110,6 +110,12 @@ class SiderDemo extends React.Component {
                   path="/admin/films/editfilm/:id"
                   // render={() => <div>Mlem admin showtimes</div>} // nếu anh muốn dùng component thì:
                   component={EditFilm}
+                />
+                <Route
+                  exact={true}
+                  path="/admin/films/showtime/:id"
+                  // render={() => <div>Mlem admin showtimes</div>} // nếu anh muốn dùng component thì:
+                  component={ShowTimeAdmin}
                 />
               </div>
             </Content>

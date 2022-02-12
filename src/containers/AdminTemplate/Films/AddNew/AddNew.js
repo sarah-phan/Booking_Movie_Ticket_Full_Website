@@ -16,7 +16,7 @@ import { useFormik } from "formik";
 import moment from "moment";
 import { actAddFilm } from "./module/action";
 
-const AddNew = () => {
+const AddNew = (props) => {
   const [componentSize, setComponentSize] = useState("default");
   const dispatch = useDispatch();
   const [imgSrc, setImgSrc] = useState("");
@@ -48,7 +48,7 @@ const AddNew = () => {
         }
       }
       //Gọi api gửi các giá trị formdata về backend xử lý
-      dispatch(actAddFilm(formData));
+      dispatch(actAddFilm(formData, props.history));
     },
   });
 

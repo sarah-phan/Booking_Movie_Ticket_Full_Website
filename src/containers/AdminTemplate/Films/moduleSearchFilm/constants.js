@@ -1,0 +1,3 @@
+export const SEARCH_PHIM_REQUEST = "@adminPage/SEARCH_PHIM_REQUEST";
+export const SEARCH_PHIM_SUCCESS = "@adminPage/SEARCH_PHIM_SUCCESS";
+export const SEARCH_PHIM_FAILED = "@adminPage/SEARCH_PHIM_FAILED";

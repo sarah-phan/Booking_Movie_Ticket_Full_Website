@@ -1,15 +1,16 @@
 import * as ActionType from "./constants";
 import axios from "axios";
-import { api } from "../../../../../utils/apiUtils";
+import { api1 } from "../../../../../utils/apiUtils";
 
-export const actAddFilm = (formData) => {
+export const actAddFilm = (formData, history) => {
   return (dispatch) => {
     dispatch(actAddFilmRequest());
-    api
+    api1
       .post("/QuanLyPhim/ThemPhimUploadHinh", formData)
       .then((result) => {
         dispatch(actAddFilmSuccess(result.data.content));
         alert("Thêm thành công");
+        history.replace("/admin/films");
       })
       .catch((error) => {
         dispatch(actAddFilmFailed(error));

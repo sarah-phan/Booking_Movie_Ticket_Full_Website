@@ -3,9 +3,16 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, Fragment } from "react";
 import { Button, Table, Layout } from "antd";
 import { Input, Space } from "antd";
-import { AudioOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import {
+  AudioOutlined,
+  EditOutlined,
+  DeleteOutlined,
+  CalendarOutlined,
+} from "@ant-design/icons";
 
 import { actFetchListPhim } from "../../../reducer/ModuleListPhim/action";
+import { actFetchDeleteMovie } from "./module/action";
+import { actSearchPhim } from "./moduleSearchFilm/action";
 import { NavLink, Route } from "react-router-dom";
 import AddNew from "./AddNew/AddNew";
 
@@ -13,7 +20,7 @@ import { history } from "../../../App";
 
 const { Search } = Input;
 
-export default function FilmsAdmin() {
+export default function FilmsAdmin(props) {
   const arrFilmDefault = useSelector((state) => state.listPhimReducer.data);
   const dispatch = useDispatch();
   console.log("arrFilmDefault", arrFilmDefault);
@@ -100,8 +107,28 @@ export default function FilmsAdmin() {
             >
               <EditOutlined style={{ color: "blue" }} />
             </NavLink>
-            <NavLink key={2} className="mr-2 text-2xl" to="/">
+            <span
+              key={2}
+              style={{ cursor: "pointer" }}
+              className="mr-2 text-2xl"
+              onClick={() => {
+                if (
+                  window.confirm("Bạn có chắc muốn xóa phim" + film.tenPhim)
+                ) {
+                  //goi action xoa
+                  dispatch(actFetchDeleteMovie(film.maPhim));
+                  window.location.reload();
+                }
+              }}
+            >
               <DeleteOutlined style={{ color: "red" }} />
+            </span>
+            <NavLink
+              key={3}
+              className="mr-2 text-2xl"
+              to={`/admin/films/showtime/${film.maPhim}`}
+            >
+              <CalendarOutlined style={{ color: "green" }} />
             </NavLink>
           </Fragment>
         );
@@ -110,26 +137,25 @@ export default function FilmsAdmin() {
   ];
   const data = arrFilmDefault;
 
-  const onSearch = (value) => console.log(value);
+  const onSearch = (value) => {
+    // Goi API lay danh sach Phim
+    dispatch(actSearchPhim(value));
+  };
+
   function onChange(pagination, filters, sorter, extra) {
-    console.log("params", pagination, filters, sorter, extra);
+    // console.log("params", pagination, filters, sorter, extra);
   }
 
   return (
     <div>
       <h3 className="text-4xl">Quản Lý Phim</h3>
-      <Button
-        className="mb-5"
-        // onClick={() => {
-        //   history.push("/admin/films/addnew");
-        // }}
-      >
+      <Button className="mb-5">
         <NavLink to="/admin/films/addnew">Thêm Phim</NavLink>
       </Button>
       <Search placeholder="Tên Phim" size="large" onSearch={onSearch} />
       <Table
         columns={columns}
-        dataSource={data}
+        dataSource={arrFilmDefault}
         onChange={onChange}
         rowKey={"maPhim"}
       />
