@@ -1,22 +1,28 @@
-import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Suspense } from 'react';
+import "./App.css";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import { Suspense } from "react";
 
-import { renderRoutesHome } from './routes';
-import PageNotFound from './containers/PageNotFound';
-import Loading from './components/loading';
+import { renderRoutesHome } from "./routes";
+import { renderRoutesAdmin } from "./routes";
+import PageNotFound from "./containers/PageNotFound";
+import AuthPage from "./containers/AdminTemplate/AuthPage";
+import Loading from "./components/loading";
+
+export const history = createBrowserHistory();
 
 function App() {
   return (
-    <Suspense fallback={<Loading/>}>
+    <Suspense history={history} fallback={<Loading />}>
       <BrowserRouter>
         <Switch>
           {renderRoutesHome()}
+          {renderRoutesAdmin()}
+          <Route path="/auth" component={AuthPage} />
           <Route path="" component={PageNotFound} />
         </Switch>
       </BrowserRouter>
     </Suspense>
-
   );
 }
 
